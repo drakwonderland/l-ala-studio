@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Uzel Escobido — Developer & Engineer</title>
+  <title>Uzel Escobido — Systems & Software Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,16 +23,15 @@
 </head>
 <body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-400">
 
-  <!-- Navigation -->
   <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
     <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="font-mono text-sm tracking-wide text-zinc-300 hover:text-white transition">
+      <a href="index.html" class="font-mono text-sm tracking-wide text-zinc-300 hover:text-white transition">
         escobido<span class="text-emerald-400">.dev</span>
       </a>
       <nav class="flex items-center gap-6 text-sm text-zinc-400">
         <a href="#about" class="hover:text-zinc-100 transition">About</a>
         <a href="#projects" class="hover:text-zinc-100 transition">Projects</a>
-        <a href="#skills" class="hover:text-zinc-100 transition">Stack</a>
+        <a href="#stack" class="hover:text-zinc-100 transition">Stack</a>
         <a href="mailto:uEscobido@l-ala.studio" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-200 hover:bg-emerald-500 hover:text-zinc-950 font-medium transition text-xs">Contact</a>
       </nav>
     </div>
@@ -40,7 +39,6 @@
 
   <main class="max-w-5xl mx-auto px-6 py-20 space-y-28">
 
-    <!-- Hero Section -->
     <section id="about" class="space-y-6 pt-4">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-emerald-500/20 bg-emerald-500/10 text-emerald-400 text-xs font-mono">
         <span class="relative flex h-2 w-2">
@@ -53,64 +51,85 @@
         Building high-performance software, systems, and hardware prototypes.
       </h1>
       <p class="text-lg text-zinc-400 max-w-2xl leading-relaxed">
-        Computer Science student focused on systems engineering, embedded IoT devices, and full-stack development. Building practical solutions from microcontrollers to scalable web services.
+        Computer Science student building low-latency systems, offline IoT telemetry devices, and resilient full-stack applications.
       </p>
       <div class="flex items-center gap-4 pt-2">
-        <a href="#projects" class="px-5 py-2.5 rounded-lg bg-zinc-100 text-zinc-950 hover:bg-zinc-200 font-medium text-sm transition">View Projects</a>
+        <a href="#projects" class="px-5 py-2.5 rounded-lg bg-zinc-100 text-zinc-950 hover:bg-zinc-200 font-medium text-sm transition">Explore Projects</a>
         <a href="https://github.com/drakwonderland" target="_blank" class="px-5 py-2.5 rounded-lg border border-zinc-800 bg-zinc-900/50 hover:bg-zinc-800 text-zinc-300 font-medium text-sm transition">GitHub Profile</a>
       </div>
     </section>
 
-    <!-- Projects Section -->
     <section id="projects" class="space-y-8">
-      <div class="border-b border-zinc-800 pb-4 flex items-end justify-between">
-        <div>
-          <h2 class="text-2xl font-bold tracking-tight text-zinc-100">Featured Work</h2>
-          <p class="text-sm text-zinc-400 mt-1">Hardware systems, microservices, and interactive applications.</p>
+      <div class="border-b border-zinc-800 pb-4">
+        <h2 class="text-2xl font-bold tracking-tight text-zinc-100">Featured Work</h2>
+        <p class="text-sm text-zinc-400 mt-1">Autonomous hardware systems, embedded telemetry, and applications.</p>
+      </div>
+
+      <!-- AlertShield Preview Card -->
+      <div class="group border border-zinc-800 hover:border-emerald-500/50 bg-zinc-900/40 rounded-2xl p-6 sm:p-8 transition space-y-6">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div class="flex items-center gap-3">
+            <img src="alertshield-logo.png" alt="AlertShield Logo" class="h-8 w-auto object-contain" />
+            <h3 class="text-2xl font-bold text-zinc-100 group-hover:text-emerald-400 transition">AlertShield</h3>
+          </div>
+          <span class="inline-flex items-center self-start sm:self-auto px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+            Award-Winning Capstone
+          </span>
+        </div>
+
+        <p class="text-zinc-300 text-sm sm:text-base leading-relaxed">
+          An offline multi-hazard early warning system combining infrared thermopile telemetry, ultrasonic flood monitoring, and gas sensing to safeguard rural households without internet dependence.
+        </p>
+
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs">
+          <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800/80">
+            <span class="text-zinc-500 block">RELIABILITY</span>
+            <span class="text-emerald-400 font-semibold text-base">100% (90 Trials)</span>
+          </div>
+          <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800/80">
+            <span class="text-zinc-500 block">GAS RESPONSE</span>
+            <span class="text-zinc-200 font-semibold text-base">1.01 s Avg</span>
+          </div>
+          <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800/80">
+            <span class="text-zinc-500 block">IR ERROR</span>
+            <span class="text-zinc-200 font-semibold text-base">0.100°C</span>
+          </div>
+          <div class="p-3 rounded-lg bg-zinc-950 border border-zinc-800/80">
+            <span class="text-zinc-500 block">NETWORK</span>
+            <span class="text-emerald-400 font-semibold text-base">Zero-Cloud</span>
+          </div>
+        </div>
+
+        <div class="pt-2 flex items-center justify-between">
+          <div class="flex flex-wrap gap-2 font-mono text-xs text-zinc-400">
+            <span class="bg-zinc-800/80 px-2.5 py-1 rounded">Arduino</span>
+            <span class="bg-zinc-800/80 px-2.5 py-1 rounded">C++</span>
+            <span class="bg-zinc-800/80 px-2.5 py-1 rounded">IoT Telemetry</span>
+          </div>
+          <a href="alertshield.html" class="inline-flex items-center gap-1.5 text-sm font-semibold text-emerald-400 hover:text-emerald-300 transition">
+            Read Full Case Study &rarr;
+          </a>
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Project Card 1 -->
-        <div class="group border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 rounded-xl p-6 transition flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex justify-between items-center text-xs font-mono text-zinc-400">
-              <span>IoT & Embedded</span>
-              <span class="text-emerald-400">Awarded Prototype</span>
-            </div>
-            <h3 class="text-xl font-semibold text-zinc-100 group-hover:text-emerald-400 transition">AlertShield</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">
-              Multi-hazard telemetry and warning system designed for residential monitoring. Integrates sensor matrices for autonomous fire, gas, and water ingress detection.
-            </p>
-          </div>
-          <div class="flex gap-2 pt-6 font-mono text-xs text-zinc-400">
-            <span class="bg-zinc-800 px-2 py-1 rounded">C++ / Arduino</span>
-            <span class="bg-zinc-800 px-2 py-1 rounded">Hardware Telemetry</span>
-          </div>
+      <!-- Second Project Card -->
+      <div class="border border-zinc-800 bg-zinc-900/40 rounded-2xl p-6 sm:p-8 space-y-4">
+        <div class="flex justify-between items-center text-xs font-mono text-zinc-400">
+          <span>Web Application</span>
+          <span>Interactive</span>
         </div>
-
-        <!-- Project Card 2 -->
-        <div class="group border border-zinc-800 hover:border-zinc-700 bg-zinc-900/40 rounded-xl p-6 transition flex flex-col justify-between">
-          <div class="space-y-3">
-            <div class="flex justify-between items-center text-xs font-mono text-zinc-400">
-              <span>Web Application</span>
-              <span>Interactive</span>
-            </div>
-            <h3 class="text-xl font-semibold text-zinc-100 group-hover:text-emerald-400 transition">Interactive Web Engine</h3>
-            <p class="text-sm text-zinc-400 leading-relaxed">
-              Lightweight, state-driven front-end application built with responsive CSS animations, custom routing, and interactive multi-step data presentation.
-            </p>
-          </div>
-          <div class="flex gap-2 pt-6 font-mono text-xs text-zinc-400">
-            <span class="bg-zinc-800 px-2 py-1 rounded">JavaScript</span>
-            <span class="bg-zinc-800 px-2 py-1 rounded">Tailwind CSS</span>
-          </div>
+        <h3 class="text-xl font-semibold text-zinc-100">Interactive Web Engine</h3>
+        <p class="text-sm text-zinc-400 leading-relaxed">
+          Lightweight, state-driven front-end application built with reactive UI patterns, CSS animations, custom routing, and interactive multi-step presentation components.
+        </p>
+        <div class="flex gap-2 pt-2 font-mono text-xs text-zinc-400">
+          <span class="bg-zinc-800 px-2.5 py-1 rounded">JavaScript</span>
+          <span class="bg-zinc-800 px-2.5 py-1 rounded">Tailwind CSS</span>
         </div>
       </div>
     </section>
 
-    <!-- Technical Stack -->
-    <section id="skills" class="space-y-6">
+    <section id="stack" class="space-y-6">
       <div class="border-b border-zinc-800 pb-4">
         <h2 class="text-2xl font-bold tracking-tight text-zinc-100">Technical Foundation</h2>
       </div>
@@ -121,16 +140,15 @@
         </div>
         <div class="p-5 rounded-xl border border-zinc-800/80 bg-zinc-900/20 space-y-2">
           <h4 class="font-mono text-xs text-zinc-400 uppercase tracking-wider">Systems & Infra</h4>
-          <p class="text-zinc-200">Linux, Git, OpenWrt, Custom DNS Routing, GitHub Actions</p>
+          <p class="text-zinc-200">Linux, Git, OpenWrt, Custom DNS Routing, GitHub Pages</p>
         </div>
         <div class="p-5 rounded-xl border border-zinc-800/80 bg-zinc-900/20 space-y-2">
           <h4 class="font-mono text-xs text-zinc-400 uppercase tracking-wider">Hardware & Embedded</h4>
-          <p class="text-zinc-200">Arduino, Microcontroller I/O, Sensor Integration, Circuit Testing</p>
+          <p class="text-zinc-200">Arduino Uno, Microcontroller I/O, Sensor Integration, CAD / FDM Prototyping</p>
         </div>
       </div>
     </section>
 
-    <!-- Contact CTA -->
     <section class="border border-zinc-800 rounded-2xl p-8 sm:p-12 bg-gradient-to-b from-zinc-900/50 to-zinc-950 text-center space-y-4">
       <h2 class="text-3xl font-bold tracking-tight">Let's connect.</h2>
       <p class="text-zinc-400 max-w-md mx-auto text-sm">
@@ -145,9 +163,8 @@
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-zinc-800/80 py-8 text-center text-xs text-zinc-400">
-    <p>© 2026 L-Ala Studio. Hosted on GitHub Pages via portfolio.l-ala.studio.</p>
+  <footer class="border-t border-zinc-800/80 py-8 text-center text-xs text-zinc-500">
+    <p>© 2026 L-Ala Studio. Hosted via portfolio.l-ala.studio.</p>
   </footer>
 
 </body>
