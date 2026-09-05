@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AlertShield — Engineering Case Study | Uzel Escobido</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased selection:bg-emerald-500/20 selection:text-emerald-400">
+
+  <header class="sticky top-0 z-50 border-b border-zinc-800/80 bg-zinc-950/80 backdrop-blur-md">
+    <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+      <a href="index.html" class="inline-flex items-center gap-2 font-mono text-sm text-zinc-400 hover:text-white transition">
+        &larr; Back to Portfolio
+      </a>
+      <a href="mailto:uEscobido@l-ala.studio" class="px-3.5 py-1.5 rounded-lg bg-zinc-800 text-zinc-200 hover:bg-emerald-500 hover:text-zinc-950 font-medium transition text-xs">
+        Contact
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-6 py-16 space-y-16">
+
+    <!-- Title & Hero Header -->
+    <div class="space-y-6">
+      <div class="flex items-center gap-4">
+        <img src="alertshield-logo.png" alt="AlertShield Logo" class="h-12 w-auto object-contain" />
+        <span class="inline-flex items-center px-3 py-1 rounded-full text-xs font-mono bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          Award: Best Capstone Project (Science & Technology)
+        </span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-bold tracking-tight text-zinc-100">
+        AlertShield: Multi-Hazard Disaster Detecting Device
+      </h1>
+      <p class="text-base sm:text-lg text-zinc-400 leading-relaxed">
+        Development and performance evaluation of an offline, integrated flood, fire, and gas early warning system built with an Arduino Uno microcontroller to bridge disaster vulnerability in off-grid and low-income residential areas.
+      </p>
+      <div class="flex flex-wrap gap-4 text-xs font-mono text-zinc-500 border-y border-zinc-800 py-3">
+        <span>Institution: Don Bosco Academy Bacolor</span>
+        <span>•</span>
+        <span>Strand: Grade 12 STEM</span>
+        <span>•</span>
+        <span>Year: 2026</span>
+      </div>
+    </div>
+
+    <!-- Recognition Presentation Photo -->
+    <div class="space-y-3">
+      <div class="relative rounded-2xl overflow-hidden border border-zinc-800 bg-zinc-900 shadow-2xl">
+        <img src="alertshield-award.jpg" alt="Capstone Project Recognition Ceremony Presentation" class="w-full h-auto max-h-[500px] object-cover object-center" />
+      </div>
+      <p class="text-xs font-mono text-zinc-500 text-center">
+        Stage presentation at Don Bosco Academy for Capstone Project Recognition in Science and Technology.
+      </p>
+    </div>
+
+    <!-- Problem Statement & Architecture -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-zinc-100">The Problem & System Philosophy</h2>
+      <p class="text-sm text-zinc-300 leading-relaxed">
+        Commercial smart home detectors (such as the Google Nest Protect or industrial gas modules) create economic and functional segregation: they are prohibitively expensive for average households, require multiple discrete units, and depend entirely on stable Wi-Fi and mobile connectivity. During extreme typhoons or fires, power lines and cellular networks frequently drop first.
+      </p>
+      <p class="text-sm text-zinc-300 leading-relaxed">
+        AlertShield is an engineering validation of a cost-effective, offline integration architecture. By executing all threshold calculations directly on bare-metal Arduino hardware, alerts trigger instantaneously without cloud latency or internet dependencies.
+      </p>
+    </section>
+
+    <!-- Sensor Array Breakdown -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold text-zinc-100">Multi-Hazard Sensor Array</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+        
+        <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/30 space-y-3">
+          <div class="font-mono text-xs text-emerald-400 uppercase">Flood Monitoring</div>
+          <h3 class="text-base font-semibold text-zinc-100">HC-SR04 & Buoyant Pylon</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Housed in a 2-inch vertical PVC conduit using a buoyant celluloid float. Acoustic time-of-flight measures water elevation mapped to PAGASA Low (15 cm) and Moderate (30 cm) warning levels.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/30 space-y-3">
+          <div class="font-mono text-xs text-emerald-400 uppercase">Fire Detection</div>
+          <h3 class="text-base font-semibold text-zinc-100">MLX90614 Infrared</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Non-contact thermopile infrared sensor calibrated strictly to the NFPA 72 residential ordinary threshold (>57°C) to eliminate false triggers caused by tropical Philippine ambient heat.
+          </p>
+        </div>
+
+        <div class="p-5 rounded-xl border border-zinc-800 bg-zinc-900/30 space-y-3">
+          <div class="font-mono text-xs text-emerald-400 uppercase">Gas & Smoke Detection</div>
+          <h3 class="text-base font-semibold text-zinc-100">MQ-2 & MQ-7 Array</h3>
+          <p class="text-xs text-zinc-400 leading-relaxed">
+            Metal-oxide semiconductor sensors detecting LPG, methane, and carbon monoxide leaks calibrated to NFPA 715 and UL 2034 10% Lower Explosive Limit (5,000 ppm) safety margins.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Experimental Results & Data Table -->
+    <section class="space-y-6">
+      <h2 class="text-xl font-bold text-zinc-100">Empirical Performance & Evaluation</h2>
+      <p class="text-sm text-zinc-300 leading-relaxed">
+        The prototype underwent 90 controlled experimental trials (30 per hazard vector) validated using paired statistical testing (Paired Samples T-Test and Wilcoxon Signed-Rank Tests):
+      </p>
+
+      <div class="overflow-x-auto rounded-xl border border-zinc-800">
+        <table class="w-full text-left text-xs font-mono">
+          <thead class="bg-zinc-900 text-zinc-400 border-b border-zinc-800">
+            <tr>
+              <th class="p-3.5">Hazard Vector</th>
+              <th class="p-3.5">AlertShield Metric</th>
+              <th class="p-3.5">Commercial Benchmark</th>
+              <th class="p-3.5">Statistical Outcome</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-zinc-800/60 bg-zinc-950/50 text-zinc-300">
+            <tr>
+              <td class="p-3.5 font-semibold text-zinc-100">Heat / Fire Tracking</td>
+              <td class="p-3.5">141.0°C mean</td>
+              <td class="p-3.5">142.0°C mean</td>
+              <td class="p-3.5 text-emerald-400">p = 0.343 (No significant difference)</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-semibold text-zinc-100">Gas Leak Speed</td>
+              <td class="p-3.5">1.01 s avg response</td>
+              <td class="p-3.5">1.11 s avg response</td>
+              <td class="p-3.5 text-emerald-400">0.135s faster than commercial (p = 0.036)</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-semibold text-zinc-100">Flood Ingress</td>
+              <td class="p-3.5">21.4 cm mean</td>
+              <td class="p-3.5">19.8 cm (Ruler)</td>
+              <td class="p-3.5 text-zinc-400">2.5 cm mean offset (Float geometry)</td>
+            </tr>
+            <tr>
+              <td class="p-3.5 font-semibold text-zinc-100">Alarm Trigger Rate</td>
+              <td class="p-3.5">100% (90/90 trials)</td>
+              <td class="p-3.5">Synchronous sound & visual</td>
+              <td class="p-3.5 text-emerald-400">Zero failure across all vectors</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Structural & CAD -->
+    <section class="space-y-4">
+      <h2 class="text-xl font-bold text-zinc-100">Mechanical Housing & Fabrication</h2>
+      <p class="text-sm text-zinc-300 leading-relaxed">
+        The hardware is enclosed in a custom CAD-modeled chassis manufactured via Fused Deposition Modeling (FDM) 3D printing using Polylactic Acid (PLA) thermoplastic. The enclosure provides dedicated apertures for the 16x2 I2C Liquid Crystal Display, targeted mounting slots for the MLX90614 infrared sentinel, internal circuit stabilization pillars, and mounting points for the DC piezoceramic audio alarm and status LED indicators.
+      </p>
+    </section>
+
+    <!-- Footer CTA -->
+    <div class="border-t border-zinc-800 pt-10 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="index.html" class="text-sm font-mono text-zinc-400 hover:text-white transition">
+        &larr; Return to main portfolio
+      </a>
+      <a href="mailto:uEscobido@l-ala.studio" class="px-5 py-2.5 rounded-lg bg-emerald-500 text-zinc-950 font-semibold text-xs hover:bg-emerald-400 transition">
+        Inquire about AlertShield &rarr;
+      </a>
+    </div>
+
+  </main>
+
+  <footer class="border-t border-zinc-800/80 py-8 text-center text-xs text-zinc-500">
+    <p>© 2026 L-Ala Studio. Hosted via portfolio.l-ala.studio.</p>
+  </footer>
+
+</body>
+</html>
