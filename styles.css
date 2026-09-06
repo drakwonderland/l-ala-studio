@@ -1,0 +1,101 @@
+/* Base Reset & Typography */
+body {
+  background-color: #000000;
+  color: #f5f5f7;
+  margin: 0;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* iPad Pro Ambient Light Engine */
+.ambient-engine {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background-color: #000000;
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.45;
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+/* Deep Indigo */
+.orb-1 { width: 50vw; height: 50vw; min-width: 400px; min-height: 400px; background: #5e5ce6; top: -10%; left: 0%; }
+/* Vivid Cyan */
+.orb-2 { width: 40vw; height: 40vw; min-width: 300px; min-height: 300px; background: #32ade6; bottom: -10%; right: 0%; }
+/* Warm Amber/Orange bleed */
+.orb-3 { width: 60vw; height: 60vw; min-width: 500px; min-height: 500px; background: #ff9f0a; top: 30%; left: 30%; opacity: 0.15; }
+
+.content-layer { position: relative; z-index: 10; }
+
+/* Liquid Glass Cards */
+.liquid-card {
+  background: rgba(28, 28, 30, 0.35);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  will-change: transform;
+}
+
+.interactive-card { cursor: pointer; }
+.interactive-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
+}
+.interactive-card:active {
+  transform: translateY(2px) scale(0.99);
+  transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Typography Gradients */
+.text-titanium {
+  background: linear-gradient(180deg, #ffffff 0%, #b5b5ba 60%, #707075 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Nav Bar */
+.apple-nav {
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Scroll Reveal Engine */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px) scale(0.99);
+  filter: blur(4px);
+  transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0px);
+}
+
+/* Hardware Ripple Effect */
+.click-ripple {
+  position: fixed;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, rgba(255,255,255,0) 70%);
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple-shockwave 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+@keyframes ripple-shockwave {
+  0% { width: 0px; height: 0px; opacity: 0.6; }
+  100% { width: 350px; height: 350px; opacity: 0; }
+}

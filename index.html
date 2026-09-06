@@ -4,139 +4,30 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Uzel Escobido — Computer Science</title>
-
+  
   <meta name="title" content="Uzel Escobido — Software & Systems">
   <meta name="description" content="Computer Science undergraduate building low-latency architectures, offline IoT telemetry devices, and resilient full-stack systems.">
-
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://portfolio.l-ala.studio/">
   <meta property="og:title" content="Uzel Escobido — Software & Systems">
   <meta property="og:description" content="Computer Science undergraduate building low-latency architectures, offline IoT telemetry devices, and resilient full-stack systems.">
   <meta property="og:image" content="https://portfolio.l-ala.studio/og-image.jpg">
 
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="https://portfolio.l-ala.studio/">
-  <meta property="twitter:title" content="Uzel Escobido — Software & Systems">
-  <meta property="twitter:description" content="Computer Science undergraduate building low-latency architectures, offline IoT telemetry devices, and resilient full-stack systems.">
-  <meta property="twitter:image" content="https://portfolio.l-ala.studio/og-image.jpg">
-
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          }
-        }
-      }
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
     }
   </script>
-  <style>
-    body {
-      background-color: #000000;
-      color: #f5f5f7;
-      margin: 0;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* Ambient Engine */
-    .ambient-engine {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-      background-color: #000000;
-    }
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.5;
-      will-change: transform;
-      transition: transform 0.1s linear;
-    }
-    .orb-1 { width: 50vw; height: 50vw; min-width: 400px; min-height: 400px; background: #2997ff; top: -10%; left: 0%; }
-    .orb-2 { width: 40vw; height: 40vw; min-width: 300px; min-height: 300px; background: #bf5af2; bottom: -10%; right: 0%; }
-    .orb-3 { width: 60vw; height: 60vw; min-width: 500px; min-height: 500px; background: #ff375f; top: 30%; left: 30%; opacity: 0.2; }
-
-    .content-layer { position: relative; z-index: 10; }
-
-    /* Liquid Glass Cards */
-    .liquid-card {
-      background: rgba(30, 30, 35, 0.25);
-      backdrop-filter: blur(40px) saturate(200%);
-      -webkit-backdrop-filter: blur(40px) saturate(200%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-      will-change: transform;
-    }
-    
-    .interactive-card {
-      cursor: pointer;
-    }
-    
-    .interactive-card:hover {
-      transform: translateY(-4px) scale(1.01);
-      border-color: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 30px 60px -10px rgba(0, 0, 0, 0.7), inset 0 1px 0 0 rgba(255, 255, 255, 0.3);
-    }
-    .interactive-card:active {
-      transform: translateY(2px) scale(0.99);
-      transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .text-titanium {
-      background: linear-gradient(180deg, #ffffff 0%, #b5b5ba 60%, #707075 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .apple-nav {
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(40px) saturate(180%);
-      -webkit-backdrop-filter: blur(40px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    /* Reveals & Ripples */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px) scale(0.99);
-      filter: blur(4px);
-      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1);
-      will-change: opacity, transform, filter;
-    }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0) scale(1);
-      filter: blur(0px);
-    }
-
-    .click-ripple {
-      position: fixed;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-      transform: translate(-50%, -50%) scale(0);
-      animation: ripple-shockwave 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    @keyframes ripple-shockwave {
-      0% { width: 0px; height: 0px; opacity: 0.6; }
-      100% { width: 350px; height: 350px; opacity: 0; }
-    }
-  </style>
 </head>
-<body class="selection:bg-[#10b981] selection:text-white pb-20">
+<body class="selection:bg-[#5e5ce6] selection:text-white pb-20">
 
   <div class="ambient-engine">
     <div class="orb orb-1" id="orb1"></div>
@@ -149,12 +40,12 @@
     <header class="apple-nav fixed top-0 w-full z-50 h-14 flex items-center">
       <div class="max-w-5xl mx-auto px-6 w-full flex justify-between items-center font-mono text-sm tracking-wide text-[#d2d2d7]">
         <a href="index.html" class="hover:text-white transition-colors text-white font-semibold">
-          l-ala<span class="text-[#10b981]">.studio</span>
+          l-ala<span class="text-[#5e5ce6]">.studio</span>
         </a>
         <nav class="flex items-center gap-6 font-sans font-medium text-xs sm:text-sm">
           <a href="#projects" class="hover:text-white transition-colors">Projects</a>
           <a href="#stack" class="hover:text-white transition-colors hidden sm:block">Stack</a>
-          <a href="mailto:uEscobido@l-ala.studio" class="px-3 py-1.5 rounded-md bg-white/10 text-white hover:bg-[#10b981] hover:text-black transition-colors">Contact</a>
+          <a href="mailto:uEscobido@l-ala.studio" class="px-3 py-1.5 rounded-md bg-white/10 text-white hover:bg-[#5e5ce6] hover:text-white transition-colors">Contact</a>
         </nav>
       </div>
     </header>
@@ -169,12 +60,9 @@
         <h1 class="text-5xl sm:text-7xl md:text-[6.5rem] font-bold tracking-tight text-white leading-[1.05]">
           Uzel Escobido.
         </h1>
-        <div class="text-4xl sm:text-6xl md:text-[5.5rem] font-bold tracking-tight text-titanium leading-[1.1] max-w-4xl mt-1 sm:mt-2">
-          Software & Systems.
-        </div>
         
         <p class="text-base sm:text-xl text-[#a1a1a6] mt-6 sm:mt-8 font-medium leading-relaxed">
-          Focused on low-latency architectures, offline IoT telemetry devices, and resilient full-stack engineering.
+          Building low-latency architectures, offline IoT telemetry devices, and resilient full-stack systems.
         </p>
 
         <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mt-10 w-full sm:w-auto">
@@ -204,7 +92,7 @@
                   </div>
                   <h3 class="text-2xl sm:text-3xl font-bold tracking-tight text-white">AlertShield</h3>
                 </div>
-                <span class="inline-flex items-center self-start sm:self-auto px-2.5 py-1 rounded-md text-[10px] sm:text-[11px] font-mono bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20">
+                <span class="inline-flex items-center self-start sm:self-auto px-2.5 py-1 rounded-md text-[10px] sm:text-[11px] font-mono bg-[#5e5ce6]/20 text-[#7a78ff] border border-[#5e5ce6]/30">
                   Award-Winning Capstone
                 </span>
               </div>
@@ -216,7 +104,7 @@
               <div class="grid grid-cols-2 md:grid-cols-4 gap-4 font-mono text-[10px] sm:text-xs pt-4 border-t border-white/10">
                 <div>
                   <span class="text-[#86868b] block mb-1">RELIABILITY</span>
-                  <span class="text-[#10b981] font-semibold text-sm">100% (90 Trials)</span>
+                  <span class="text-[#7a78ff] font-semibold text-sm">100% (90 Trials)</span>
                 </div>
                 <div>
                   <span class="text-[#86868b] block mb-1">GAS RESPONSE</span>
@@ -228,7 +116,7 @@
                 </div>
                 <div>
                   <span class="text-[#86868b] block mb-1">NETWORK</span>
-                  <span class="text-[#10b981] font-semibold text-sm">Zero-Cloud</span>
+                  <span class="text-[#7a78ff] font-semibold text-sm">Zero-Cloud</span>
                 </div>
               </div>
 
@@ -237,7 +125,7 @@
                   <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md">Arduino</span>
                   <span class="bg-white/5 border border-white/10 px-2.5 py-1 rounded-md">C++</span>
                 </div>
-                <span class="text-[#10b981] font-semibold text-sm flex items-center gap-1 hover:text-white transition-colors">
+                <span class="text-[#7a78ff] font-semibold text-sm flex items-center gap-1 hover:text-white transition-colors">
                   Read Case Study <span class="text-lg leading-none">&rsaquo;</span>
                 </span>
               </div>
@@ -313,7 +201,7 @@
             Direct inquiries, collaboration requests, or engineering discussions:
           </p>
           <div class="pt-4">
-            <a href="mailto:uEscobido@l-ala.studio" class="px-8 py-3.5 rounded-full bg-[#10b981] text-black text-sm font-bold hover:bg-white hover:scale-[1.02] active:scale-95 transition-all shadow-lg inline-block">
+            <a href="mailto:uEscobido@l-ala.studio" class="px-8 py-3.5 rounded-full bg-[#f5f5f7] text-black text-sm font-bold hover:bg-white hover:scale-[1.02] active:scale-95 transition-all shadow-lg inline-block">
               uEscobido@l-ala.studio
             </a>
           </div>
@@ -327,49 +215,5 @@
     </footer>
   </div>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("active");
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-      const orb1 = document.getElementById('orb1');
-      const orb2 = document.getElementById('orb2');
-      const orb3 = document.getElementById('orb3');
-      
-      let scrollY = window.scrollY;
-      let ticking = false;
-
-      window.addEventListener('scroll', () => {
-        scrollY = window.scrollY;
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            orb1.style.transform = `translateY(${scrollY * 0.1}px)`;
-            orb2.style.transform = `translateY(${scrollY * -0.05}px)`;
-            orb3.style.transform = `translateY(${scrollY * 0.02}px)`;
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      document.addEventListener('mousedown', (e) => {
-        if(e.target.tagName === 'P' || e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'SPAN' || e.target.tagName === 'IMG') return;
-
-        const ripple = document.createElement('div');
-        ripple.className = 'click-ripple';
-        ripple.style.left = `${e.clientX}px`;
-        ripple.style.top = `${e.clientY}px`;
-        document.body.appendChild(ripple);
-
-        setTimeout(() => {
-          ripple.remove();
-        }, 500);
-      });
-    });
-  </script>
 </body>
 </html>

@@ -4,110 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AlertShield — Engineering Case Study | Uzel Escobido</title>
+  
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="styles.css">
+  <script src="main.js" defer></script>
+
   <script>
     tailwind.config = {
-      theme: {
-        extend: {
-          fontFamily: {
-            sans: ['Inter', 'sans-serif'],
-            mono: ['JetBrains Mono', 'monospace'],
-          }
-        }
-      }
+      theme: { extend: { fontFamily: { sans: ['Inter', 'sans-serif'], mono: ['JetBrains Mono', 'monospace'] } } }
     }
   </script>
-  <style>
-    body {
-      background-color: #000000;
-      color: #f5f5f7;
-      margin: 0;
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    .ambient-engine {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
-      overflow: hidden;
-      background-color: #000000;
-    }
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(100px);
-      opacity: 0.5;
-      will-change: transform;
-      transition: transform 0.1s linear;
-    }
-    .orb-1 { width: 60vw; height: 60vw; min-width: 500px; min-height: 500px; background: #2997ff; top: -20%; left: 10%; }
-    .orb-2 { width: 50vw; height: 50vw; min-width: 400px; min-height: 400px; background: #bf5af2; bottom: 0%; right: -10%; }
-
-    .content-layer { position: relative; z-index: 10; }
-
-    .liquid-card {
-      background: rgba(30, 30, 35, 0.25);
-      backdrop-filter: blur(40px) saturate(200%);
-      -webkit-backdrop-filter: blur(40px) saturate(200%);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      border-radius: 24px;
-      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.5), inset 0 1px 0 0 rgba(255, 255, 255, 0.15);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
-      will-change: transform;
-    }
-    
-    .interactive-card { cursor: pointer; }
-    .interactive-card:hover {
-      transform: translateY(-4px) scale(1.01);
-      border-color: rgba(255, 255, 255, 0.2);
-    }
-    .interactive-card:active {
-      transform: translateY(2px) scale(0.99);
-      transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .text-titanium {
-      background: linear-gradient(180deg, #ffffff 0%, #b5b5ba 60%, #707075 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .apple-nav {
-      background: rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(40px) saturate(180%);
-      -webkit-backdrop-filter: blur(40px) saturate(180%);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px) scale(0.99);
-      filter: blur(4px);
-      transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .reveal.active { opacity: 1; transform: translateY(0) scale(1); filter: blur(0px); }
-
-    .click-ripple {
-      position: fixed;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
-      transform: translate(-50%, -50%) scale(0);
-      animation: ripple-shockwave 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    @keyframes ripple-shockwave {
-      0% { width: 0px; height: 0px; opacity: 0.6; }
-      100% { width: 350px; height: 350px; opacity: 0; }
-    }
-  </style>
 </head>
-<body class="selection:bg-[#10b981] selection:text-white pb-20">
+<body class="selection:bg-[#5e5ce6] selection:text-white pb-20">
 
   <div class="ambient-engine">
     <div class="orb orb-1" id="orb1"></div>
@@ -121,7 +33,7 @@
         <a href="index.html" class="hover:text-white transition-colors text-white font-mono flex items-center gap-1.5">
           <span class="text-base leading-none pb-[1px]">&larr;</span> Back
         </a>
-        <a href="mailto:uEscobido@l-ala.studio" class="px-3 py-1.5 rounded-md bg-white/10 text-white hover:bg-[#10b981] hover:text-black transition-colors font-sans">Contact</a>
+        <a href="mailto:uEscobido@l-ala.studio" class="px-3 py-1.5 rounded-md bg-white/10 text-white hover:bg-[#5e5ce6] hover:text-white transition-colors font-sans">Contact</a>
       </div>
     </header>
 
@@ -132,7 +44,7 @@
           <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white/5 flex items-center justify-center p-2 border border-white/10">
             <img src="alertshield-logo.png" alt="AlertShield Logo" class="h-full w-auto object-contain" />
           </div>
-          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-mono bg-[#10b981]/10 text-[#10b981] border border-[#10b981]/20 self-start sm:self-auto">
+          <span class="inline-flex items-center px-2.5 py-1 rounded-md text-[11px] sm:text-xs font-mono bg-[#5e5ce6]/20 text-[#7a78ff] border border-[#5e5ce6]/30 self-start sm:self-auto">
             Award: Best Capstone Project
           </span>
         </div>
@@ -150,7 +62,7 @@
           <span class="text-white/20 hidden sm:inline">•</span>
           <span>Strand: Grade 12 STEM</span>
           <span class="text-white/20 hidden sm:inline">•</span>
-          <span class="text-[#10b981]">Year: 2026</span>
+          <span class="text-[#7a78ff]">Year: 2026</span>
         </div>
       </section>
 
@@ -180,7 +92,7 @@
         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-6">
           
           <div class="liquid-card p-6 sm:p-8 space-y-2 sm:space-y-3 relative z-10">
-            <h4 class="text-[10px] sm:text-[11px] font-mono text-[#10b981] uppercase tracking-wider">Flood Monitoring</h4>
+            <h4 class="text-[10px] sm:text-[11px] font-mono text-[#7a78ff] uppercase tracking-wider">Flood Monitoring</h4>
             <h3 class="text-lg sm:text-xl font-bold text-white">HC-SR04 & Pylon</h3>
             <p class="text-xs sm:text-[14px] text-[#d2d2d7] font-medium leading-relaxed">
               Housed in a 2-inch vertical PVC conduit using a buoyant celluloid float. Acoustic time-of-flight measures water elevation mapped to PAGASA Low (15 cm) and Moderate (30 cm) warning levels.
@@ -188,7 +100,7 @@
           </div>
 
           <div class="liquid-card p-6 sm:p-8 space-y-2 sm:space-y-3 relative z-10">
-            <h4 class="text-[10px] sm:text-[11px] font-mono text-[#10b981] uppercase tracking-wider">Fire Detection</h4>
+            <h4 class="text-[10px] sm:text-[11px] font-mono text-[#7a78ff] uppercase tracking-wider">Fire Detection</h4>
             <h3 class="text-lg sm:text-xl font-bold text-white">MLX90614 Infrared</h3>
             <p class="text-xs sm:text-[14px] text-[#d2d2d7] font-medium leading-relaxed">
               Non-contact thermopile infrared sensor calibrated strictly to the NFPA 72 residential ordinary threshold (&gt;57°C) to eliminate false triggers caused by tropical Philippine ambient heat.
@@ -196,7 +108,7 @@
           </div>
 
           <div class="liquid-card p-6 sm:p-8 space-y-2 sm:space-y-3 relative z-10">
-            <h4 class="text-[10px] sm:text-[11px] font-mono text-[#10b981] uppercase tracking-wider">Gas Detection</h4>
+            <h4 class="text-[10px] sm:text-[11px] font-mono text-[#7a78ff] uppercase tracking-wider">Gas Detection</h4>
             <h3 class="text-lg sm:text-xl font-bold text-white">MQ-2 & MQ-7 Array</h3>
             <p class="text-xs sm:text-[14px] text-[#d2d2d7] font-medium leading-relaxed">
               Metal-oxide semiconductor sensors detecting LPG, methane, and carbon monoxide leaks calibrated to NFPA 715 and UL 2034 10% LEL safety margins.
@@ -226,13 +138,13 @@
                 <td class="p-4 sm:p-5 text-white font-medium">Heat / Fire Tracking</td>
                 <td class="p-4 sm:p-5">141.0°C mean</td>
                 <td class="p-4 sm:p-5">142.0°C mean</td>
-                <td class="p-4 sm:p-5 text-[#10b981]">p = 0.343 (No diff)</td>
+                <td class="p-4 sm:p-5 text-[#7a78ff]">p = 0.343 (No diff)</td>
               </tr>
               <tr class="hover:bg-white/5 transition-colors">
                 <td class="p-4 sm:p-5 text-white font-medium">Gas Leak Speed</td>
                 <td class="p-4 sm:p-5">1.01 s avg response</td>
                 <td class="p-4 sm:p-5">1.11 s avg response</td>
-                <td class="p-4 sm:p-5 text-[#10b981]">0.135s faster (p = 0.036)</td>
+                <td class="p-4 sm:p-5 text-[#7a78ff]">0.135s faster (p = 0.036)</td>
               </tr>
               <tr class="hover:bg-white/5 transition-colors">
                 <td class="p-4 sm:p-5 text-white font-medium">Flood Ingress</td>
@@ -244,7 +156,7 @@
                 <td class="p-4 sm:p-5 text-white font-medium">Alarm Trigger Rate</td>
                 <td class="p-4 sm:p-5 text-white font-bold">100% (90/90 trials)</td>
                 <td class="p-4 sm:p-5">Synchronous sound</td>
-                <td class="p-4 sm:p-5 text-[#10b981] font-bold">Zero failure rate</td>
+                <td class="p-4 sm:p-5 text-[#7a78ff] font-bold">Zero failure rate</td>
               </tr>
             </tbody>
           </table>
@@ -262,7 +174,7 @@
         <a href="index.html" class="text-xs sm:text-sm font-mono text-[#86868b] hover:text-white transition-colors">
           &larr; Return to main portfolio
         </a>
-        <a href="mailto:uEscobido@l-ala.studio" class="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-[#10b981] text-black font-bold hover:bg-white hover:scale-[1.02] active:scale-95 transition-all shadow-lg text-sm text-center">
+        <a href="mailto:uEscobido@l-ala.studio" class="w-full sm:w-auto px-6 sm:px-8 py-3 rounded-full bg-[#f5f5f7] text-black font-bold hover:bg-white hover:scale-[1.02] active:scale-95 transition-all shadow-lg text-sm text-center">
           Inquire about AlertShield &rarr;
         </a>
       </div>
@@ -273,48 +185,5 @@
       <p>© 2026 L-Ala Studio. Hosted via portfolio.l-ala.studio.</p>
     </footer>
   </div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) entry.target.classList.add("active");
-        });
-      }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
-      document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
-
-      const orb1 = document.getElementById('orb1');
-      const orb2 = document.getElementById('orb2');
-      
-      let scrollY = window.scrollY;
-      let ticking = false;
-
-      window.addEventListener('scroll', () => {
-        scrollY = window.scrollY;
-        if (!ticking) {
-          window.requestAnimationFrame(() => {
-            orb1.style.transform = `translateY(${scrollY * 0.1}px)`;
-            orb2.style.transform = `translateY(${scrollY * -0.05}px)`;
-            ticking = false;
-          });
-          ticking = true;
-        }
-      });
-
-      document.addEventListener('mousedown', (e) => {
-        if(e.target.tagName === 'P' || e.target.tagName === 'H1' || e.target.tagName === 'H2' || e.target.tagName === 'TD' || e.target.tagName === 'TH' || e.target.tagName === 'SPAN' || e.target.tagName === 'IMG') return;
-
-        const ripple = document.createElement('div');
-        ripple.className = 'click-ripple';
-        ripple.style.left = `${e.clientX}px`;
-        ripple.style.top = `${e.clientY}px`;
-        document.body.appendChild(ripple);
-
-        setTimeout(() => {
-          ripple.remove();
-        }, 500);
-      });
-    });
-  </script>
 </body>
 </html>
