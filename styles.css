@@ -1,33 +1,34 @@
-/* Design & Motion Tokens */
+/* Dark-Blue Liquid Glass — Design & Motion Tokens */
 :root {
-  --bg: #0b0d11;
-  --surface: #12151c;
-  --surface-raised: #191d26;
-  --border: rgba(238, 240, 245, 0.08);
-  --border-hover: rgba(238, 240, 245, 0.18);
-  --text-primary: #eef0f5;
-  --text-secondary: #9aa1b2;
-  --text-muted: #6b7280;
-  --accent: #f59e0b;
-  --accent-text: #fbbf24;
+  --bg-deep: #030712;
+  --glass-bg: rgba(13, 25, 48, 0.52);
+  --glass-bg-hover: rgba(18, 34, 66, 0.64);
+  --glass-pill: rgba(255, 255, 255, 0.07);
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-hover: rgba(191, 219, 254, 0.28);
+  --glass-highlight: rgba(255, 255, 255, 0.22);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --accent-ice: #93c5fd;
 
   /* Named Motion Curves & Durations */
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
-  --ease-in: cubic-bezier(0.55, 0, 1, 0.45);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --dur-press: 120ms;
-  --dur-hover: 150ms;
+  --dur-hover: 160ms;
   --dur-move: 240ms;
-  --dur-enter: 320ms;
+  --dur-enter: 340ms;
 }
 
 html {
-  background-color: var(--bg);
+  background-color: var(--bg-deep);
   color: var(--text-primary);
 }
 
 body {
-  background-color: var(--bg);
+  background-color: var(--bg-deep);
   color: var(--text-primary);
   margin: 0;
   overflow-x: hidden;
@@ -39,29 +40,54 @@ body {
   font-variant-numeric: tabular-nums;
 }
 
-/* Subtle 1px instrument grid background */
-.bench-grid {
-  background-image:
-    linear-gradient(to right, rgba(238, 240, 245, 0.025) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(238, 240, 245, 0.025) 1px, transparent 1px);
-  background-size: 48px 48px;
+/* Static GPU-cached deep-blue light field (no blur(120px), no scroll-JS lag) */
+.glass-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(65% 55% at 18% 12%, rgba(29, 78, 216, 0.34) 0%, rgba(29, 78, 216, 0) 70%),
+    radial-gradient(55% 50% at 85% 22%, rgba(14, 116, 144, 0.22) 0%, rgba(14, 116, 144, 0) 70%),
+    radial-gradient(60% 50% at 50% 88%, rgba(30, 58, 138, 0.32) 0%, rgba(30, 58, 138, 0) 72%),
+    linear-gradient(180deg, #020617 0%, #061024 55%, #030712 100%);
 }
 
-/* Navigation */
+.content-layer {
+  position: relative;
+  z-index: 10;
+}
+
+/* Liquid Glass Navigation */
 .apple-nav {
-  background: rgba(11, 13, 17, 0.92);
-  border-bottom: 1px solid var(--border);
+  background: rgba(6, 14, 32, 0.62);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.04);
 }
 
-/* Surfaces (>200px wide: background/border transition, no scale jump) */
-.surface-card,
-.liquid-card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: 12px;
+/* Liquid Glass Surface */
+.liquid-card,
+.surface-card {
+  background: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    var(--glass-bg) 38%,
+    rgba(7, 15, 32, 0.62) 100%
+  );
+  backdrop-filter: blur(16px) saturate(165%);
+  -webkit-backdrop-filter: blur(16px) saturate(165%);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  box-shadow:
+    0 18px 40px -12px rgba(2, 6, 23, 0.65),
+    inset 0 1px 0 0 var(--glass-highlight),
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.04);
   transition:
     border-color var(--dur-hover) ease,
-    background-color var(--dur-hover) ease;
+    background-color var(--dur-hover) ease,
+    box-shadow var(--dur-hover) ease;
 }
 
 .interactive-card {
@@ -70,16 +96,15 @@ body {
 
 @media (hover: hover) and (pointer: fine) {
   .interactive-card:hover {
-    background: var(--surface-raised);
-    border-color: var(--border-hover);
+    border-color: var(--glass-border-hover);
+    box-shadow:
+      0 22px 48px -12px rgba(2, 6, 23, 0.78),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.06);
   }
 }
 
-.interactive-card:active {
-  background: var(--surface-raised);
-}
-
-/* Buttons & Chips (press anticipation: 0.96 over 120ms ease-out) */
+/* Tactile Glass & Pill Buttons */
 .btn-tactile {
   transition:
     transform var(--dur-press) var(--ease-out),
@@ -92,12 +117,22 @@ body {
   transform: scale(0.96);
 }
 
-/* Legacy solid primary text */
+.glass-pill {
+  background: var(--glass-pill);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+}
+
+.glass-pill:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
 .text-titanium {
   color: var(--text-primary);
 }
 
-/* Smooth Grid-Rows Expander (no height/margin animation) */
+/* Smooth Grid-Rows Expander */
 .expander {
   display: grid;
   grid-template-rows: 0fr;
@@ -125,7 +160,7 @@ body {
   transform: translateY(0);
 }
 
-/* Stacked In-Place Replacement (e.g. Copy email -> Copied) */
+/* Stacked In-Place Replacement */
 .swap-stack {
   display: grid;
   place-items: center;
@@ -151,7 +186,7 @@ body {
   transform: scale(1);
 }
 
-/* Section Scroll Reveal (compositor-only, fast 320ms ease-out) */
+/* Section Scroll Reveal */
 .reveal {
   opacity: 0;
   transform: translateY(10px);
@@ -167,7 +202,7 @@ body {
   will-change: auto;
 }
 
-/* Readout pulse-free update highlight */
+/* Readout micro-transition */
 .readout-value {
   transition: opacity 100ms var(--ease-out), transform 100ms var(--ease-out);
 }

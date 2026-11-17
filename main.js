@@ -97,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
       modeButtons.forEach((b) => {
         const isCurrent = b === btn;
         b.setAttribute("aria-pressed", String(isCurrent));
-        b.classList.toggle("bg-[#191d26]", isCurrent);
-        b.classList.toggle("text-[#eef0f5]", isCurrent);
-        b.classList.toggle("border-[#f59e0b]/50", isCurrent);
-        b.classList.toggle("text-[#9aa1b2]", !isCurrent);
+        b.classList.toggle("bg-white/15", isCurrent);
+        b.classList.toggle("text-[#f8fafc]", isCurrent);
+        b.classList.toggle("border-white/30", isCurrent);
+        b.classList.toggle("text-[#94a3b8]", !isCurrent);
         b.classList.toggle("border-white/10", !isCurrent);
       });
 
@@ -112,13 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (elStatus) {
         elStatus.textContent = activeMode.status;
         elStatus.className = activeMode.alert
-          ? "font-mono text-xs text-[#fbbf24] transition-colors duration-150"
-          : "font-mono text-xs text-[#9aa1b2] transition-colors duration-150";
+          ? "font-mono text-xs text-[#fca5a5] transition-colors duration-150"
+          : "font-mono text-xs text-[#94a3b8] transition-colors duration-150";
       }
       if (elDot) {
         elDot.className = activeMode.alert
-          ? "w-2 h-2 rounded-full bg-[#f59e0b] transition-colors duration-150"
-          : "w-2 h-2 rounded-full bg-[#4cc38a] transition-colors duration-150";
+          ? "w-2 h-2 rounded-full bg-[#f87171] transition-colors duration-150"
+          : "w-2 h-2 rounded-full bg-[#93c5fd] transition-colors duration-150";
       }
     });
   });
@@ -154,14 +154,14 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
 
-      ctx.strokeStyle = "rgba(238, 240, 245, 0.08)";
+      ctx.strokeStyle = "rgba(226, 232, 240, 0.08)";
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, height / 2);
       ctx.lineTo(width, height / 2);
       ctx.stroke();
 
-      ctx.strokeStyle = activeMode.alert ? "#f59e0b" : "#4cc38a";
+      ctx.strokeStyle = activeMode.alert ? "#f87171" : "#93c5fd";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       for (let x = 0; x <= width; x += 3) {
@@ -223,10 +223,10 @@ document.addEventListener("DOMContentLoaded", () => {
       filterBtns.forEach((b) => {
         const active = b === btn;
         b.setAttribute("aria-pressed", String(active));
-        b.classList.toggle("bg-[#191d26]", active);
-        b.classList.toggle("text-[#eef0f5]", active);
-        b.classList.toggle("border-[#f59e0b]/50", active);
-        b.classList.toggle("text-[#9aa1b2]", !active);
+        b.classList.toggle("bg-white/15", active);
+        b.classList.toggle("text-[#f8fafc]", active);
+        b.classList.toggle("border-white/30", active);
+        b.classList.toggle("text-[#94a3b8]", !active);
         b.classList.toggle("border-white/10", !active);
       });
 
