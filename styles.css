@@ -1,25 +1,24 @@
-/* Dark-Blue Liquid Glass — Design & Motion Tokens */
+/* Dark-Blue Liquid Glass — Restrained & Polished */
 :root {
-  --bg-deep: #030712;
-  --glass-bg: rgba(13, 25, 48, 0.52);
-  --glass-bg-hover: rgba(18, 34, 66, 0.64);
-  --glass-pill: rgba(255, 255, 255, 0.07);
-  --glass-border: rgba(255, 255, 255, 0.12);
-  --glass-border-hover: rgba(191, 219, 254, 0.28);
-  --glass-highlight: rgba(255, 255, 255, 0.22);
+  --bg-deep: #04070f;
+  --glass-bg: rgba(11, 18, 34, 0.62);
+  --glass-pill: rgba(255, 255, 255, 0.055);
+  --glass-border: rgba(226, 232, 240, 0.1);
+  --glass-border-hover: rgba(226, 232, 240, 0.22);
+  --glass-highlight: rgba(255, 255, 255, 0.18);
 
-  --text-primary: #f8fafc;
-  --text-secondary: #cbd5e1;
-  --text-muted: #94a3b8;
-  --accent-ice: #93c5fd;
+  --text-primary: #f1f5f9;
+  --text-secondary: #b8c4d4;
+  --text-muted: #7c8ba1;
+  --accent-muted: #8ab4e8;
 
   /* Named Motion Curves & Durations */
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --dur-press: 120ms;
-  --dur-hover: 160ms;
+  --dur-hover: 150ms;
   --dur-move: 240ms;
-  --dur-enter: 340ms;
+  --dur-enter: 300ms;
 }
 
 html {
@@ -36,21 +35,34 @@ body {
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
+h1, h2, h3 {
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+}
+
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
 
-/* Static GPU-cached deep-blue light field (no blur(120px), no scroll-JS lag) */
+/* Neutral keyboard focus ring */
+:focus-visible {
+  outline: 1.5px solid rgba(241, 245, 249, 0.45);
+  outline-offset: 2px;
+}
+
+/* Quiet, low-chroma deep midnight-blue light field */
 .glass-backdrop {
   position: fixed;
   inset: 0;
   z-index: 0;
   pointer-events: none;
   background:
-    radial-gradient(65% 55% at 18% 12%, rgba(29, 78, 216, 0.34) 0%, rgba(29, 78, 216, 0) 70%),
-    radial-gradient(55% 50% at 85% 22%, rgba(14, 116, 144, 0.22) 0%, rgba(14, 116, 144, 0) 70%),
-    radial-gradient(60% 50% at 50% 88%, rgba(30, 58, 138, 0.32) 0%, rgba(30, 58, 138, 0) 72%),
-    linear-gradient(180deg, #020617 0%, #061024 55%, #030712 100%);
+    radial-gradient(60% 50% at 20% 10%, rgba(30, 58, 138, 0.18) 0%, rgba(30, 58, 138, 0) 70%),
+    radial-gradient(50% 45% at 82% 85%, rgba(23, 37, 84, 0.2) 0%, rgba(23, 37, 84, 0) 72%),
+    linear-gradient(180deg, #03060d 0%, #070d1b 55%, #04070f 100%);
 }
 
 .content-layer {
@@ -60,33 +72,31 @@ body {
 
 /* Liquid Glass Navigation */
 .apple-nav {
-  background: rgba(6, 14, 32, 0.62);
-  backdrop-filter: blur(18px) saturate(160%);
-  -webkit-backdrop-filter: blur(18px) saturate(160%);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, 0.04);
+  background: rgba(5, 10, 22, 0.72);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  border-bottom: 1px solid rgba(226, 232, 240, 0.08);
 }
 
 /* Liquid Glass Surface */
 .liquid-card,
 .surface-card {
   background: linear-gradient(
-    165deg,
-    rgba(255, 255, 255, 0.07) 0%,
-    var(--glass-bg) 38%,
-    rgba(7, 15, 32, 0.62) 100%
+    170deg,
+    rgba(255, 255, 255, 0.045) 0%,
+    var(--glass-bg) 42%,
+    rgba(6, 11, 22, 0.74) 100%
   );
-  backdrop-filter: blur(16px) saturate(165%);
-  -webkit-backdrop-filter: blur(16px) saturate(165%);
+  backdrop-filter: blur(16px) saturate(130%);
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
   border: 1px solid var(--glass-border);
   border-radius: 20px;
   box-shadow:
-    0 18px 40px -12px rgba(2, 6, 23, 0.65),
+    0 16px 36px -14px rgba(2, 6, 23, 0.7),
     inset 0 1px 0 0 var(--glass-highlight),
-    inset 0 -1px 0 0 rgba(255, 255, 255, 0.04);
+    inset 0 -1px 0 0 rgba(255, 255, 255, 0.03);
   transition:
     border-color var(--dur-hover) ease,
-    background-color var(--dur-hover) ease,
     box-shadow var(--dur-hover) ease;
 }
 
@@ -98,9 +108,9 @@ body {
   .interactive-card:hover {
     border-color: var(--glass-border-hover);
     box-shadow:
-      0 22px 48px -12px rgba(2, 6, 23, 0.78),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
-      inset 0 -1px 0 0 rgba(255, 255, 255, 0.06);
+      0 20px 44px -14px rgba(2, 6, 23, 0.8),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+      inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
   }
 }
 
@@ -119,13 +129,15 @@ body {
 
 .glass-pill {
   background: var(--glass-pill);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(226, 232, 240, 0.11);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
-.glass-pill:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.22);
+@media (hover: hover) and (pointer: fine) {
+  .glass-pill:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(226, 232, 240, 0.2);
+  }
 }
 
 .text-titanium {

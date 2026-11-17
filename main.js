@@ -98,9 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const isCurrent = b === btn;
         b.setAttribute("aria-pressed", String(isCurrent));
         b.classList.toggle("bg-white/15", isCurrent);
-        b.classList.toggle("text-[#f8fafc]", isCurrent);
-        b.classList.toggle("border-white/30", isCurrent);
-        b.classList.toggle("text-[#94a3b8]", !isCurrent);
+        b.classList.toggle("text-[#f1f5f9]", isCurrent);
+        b.classList.toggle("border-white/25", isCurrent);
+        b.classList.toggle("text-[#7c8ba1]", !isCurrent);
         b.classList.toggle("border-white/10", !isCurrent);
       });
 
@@ -112,13 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
       if (elStatus) {
         elStatus.textContent = activeMode.status;
         elStatus.className = activeMode.alert
-          ? "font-mono text-xs text-[#fca5a5] transition-colors duration-150"
-          : "font-mono text-xs text-[#94a3b8] transition-colors duration-150";
+          ? "font-mono text-xs text-[#e09898] transition-colors duration-150"
+          : "font-mono text-xs text-[#7c8ba1] transition-colors duration-150";
       }
       if (elDot) {
         elDot.className = activeMode.alert
-          ? "w-2 h-2 rounded-full bg-[#f87171] transition-colors duration-150"
-          : "w-2 h-2 rounded-full bg-[#93c5fd] transition-colors duration-150";
+          ? "w-2 h-2 rounded-full bg-[#e07a7a] transition-colors duration-150"
+          : "w-2 h-2 rounded-full bg-[#8ab4e8] transition-colors duration-150";
       }
     });
   });
@@ -161,7 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.lineTo(width, height / 2);
       ctx.stroke();
 
-      ctx.strokeStyle = activeMode.alert ? "#f87171" : "#93c5fd";
+      ctx.strokeStyle = activeMode.alert ? "#e07a7a" : "#8ab4e8";
       ctx.lineWidth = 1.5;
       ctx.beginPath();
       for (let x = 0; x <= width; x += 3) {
@@ -224,9 +224,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const active = b === btn;
         b.setAttribute("aria-pressed", String(active));
         b.classList.toggle("bg-white/15", active);
-        b.classList.toggle("text-[#f8fafc]", active);
-        b.classList.toggle("border-white/30", active);
-        b.classList.toggle("text-[#94a3b8]", !active);
+        b.classList.toggle("text-[#f1f5f9]", active);
+        b.classList.toggle("border-white/25", active);
+        b.classList.toggle("text-[#7c8ba1]", !active);
         b.classList.toggle("border-white/10", !active);
       });
 
