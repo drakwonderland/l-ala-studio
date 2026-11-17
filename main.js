@@ -1,7 +1,14 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // 1. Scroll Reveal (compositor-only, unobserves after trigger)
+  // 1. Scroll Reveal + Staggered Children (compositor-only, unobserves after trigger)
+  document.querySelectorAll(".reveal").forEach((section) => {
+    section.querySelectorAll(".reveal-item").forEach((item, idx) => {
+      const capped = Math.min(idx, 5);
+      item.style.setProperty("--stagger-delay", `${capped * 45}ms`);
+    });
+  });
+
   const revealEls = document.querySelectorAll(".reveal");
   if (!prefersReduced && "IntersectionObserver" in window) {
     const observer = new IntersectionObserver(
@@ -18,6 +25,69 @@ document.addEventListener("DOMContentLoaded", () => {
     revealEls.forEach((el) => observer.observe(el));
   } else {
     revealEls.forEach((el) => el.classList.add("active"));
+  }
+
+  // 1b. Scroll Progress Hairline (GPU transform: scaleX) + Active Nav Tracking
+  const progressBar = document.getElementById("scroll-progress");
+  let scrollTicking = false;
+  const updateScrollProgress = () => {
+    if (progressBar) {
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const ratio = maxScroll > 0 ? Math.min(Math.max(window.scrollY / maxScroll, 0), 1) : 0;
+      progressBar.style.transform = `scaleX(${ratio})`;
+    }
+    scrollTicking = false;
+  };
+  if (progressBar) {
+    updateScrollProgress();
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (!scrollTicking) {
+          window.requestAnimationFrame(updateScrollProgress);
+          scrollTicking = true;
+        }
+      },
+      { passive: true }
+    );
+  }
+
+  const navLinks = document.querySelectorAll(".nav-link[data-section]");
+  if (navLinks.length && "IntersectionObserver" in window) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              link.setAttribute("aria-current", String(link.getAttribute("data-section") === id));
+            });
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -55% 0px" }
+    );
+    navLinks.forEach((link) => {
+      const target = document.getElementById(link.getAttribute("data-section"));
+      if (target) sectionObserver.observe(target);
+    });
+  }
+
+  // 1c. Compositor-Only Click Ring (transform + opacity only, zero layout/paint)
+  if (!prefersReduced) {
+    document.addEventListener(
+      "pointerdown",
+      (e) => {
+        if (e.button !== 0 && e.pointerType === "mouse") return;
+        const ring = document.createElement("span");
+        ring.className = "click-ring";
+        ring.style.left = `${e.clientX}px`;
+        ring.style.top = `${e.clientY}px`;
+        document.body.appendChild(ring);
+        ring.addEventListener("animationend", () => ring.remove(), { once: true });
+      },
+      { passive: true }
+    );
   }
 
   // 2. Interactive AlertShield Telemetry Bench
@@ -253,7 +323,18 @@ document.addEventListener("DOMContentLoaded", () => {
       stackItems.forEach((item) => {
         const cat = item.getAttribute("data-stack-cat");
         const show = filter === "all" || cat === filter;
-        item.classList.toggle("hidden", !show);
+        if (show) {
+          const wasHidden = item.classList.contains("hidden");
+          item.classList.remove("hidden");
+          if (wasHidden && !prefersReduced) {
+            item.classList.add("entering");
+            window.requestAnimationFrame(() => {
+              item.classList.remove("entering");
+            });
+          }
+        } else {
+          item.classList.add("hidden");
+        }
       });
     });
   });

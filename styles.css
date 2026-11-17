@@ -58,6 +58,47 @@ p {
   border-bottom: 1px solid var(--rule);
 }
 
+/* 1.5px Scroll Progress Hairline (GPU transform: scaleX only) */
+.scroll-progress {
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 1.5px;
+  background: var(--navy);
+  transform-origin: left center;
+  transform: scaleX(0);
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* Active Nav Link */
+.nav-link {
+  position: relative;
+  transition: color var(--dur-hover) ease;
+}
+
+.nav-link[aria-current="true"] {
+  color: var(--ink);
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1.5px;
+  background: var(--navy);
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform var(--dur-move) var(--ease-fluid);
+}
+
+.nav-link[aria-current="true"]::after {
+  transform: scaleX(1);
+}
+
 /* Hairline row & section rules */
 .hairline-top {
   border-top: 1px solid var(--rule);
@@ -181,7 +222,7 @@ p {
   transform: scale(1);
 }
 
-/* Smooth Section Reveal */
+/* Smooth Section & Staggered Child Reveal (compositor-only) */
 .reveal {
   opacity: 0;
   transform: translateY(12px);
@@ -195,6 +236,57 @@ p {
   opacity: 1;
   transform: translateY(0);
   will-change: auto;
+}
+
+.reveal-item {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 320ms var(--ease-fluid),
+    transform 320ms var(--ease-fluid);
+  transition-delay: var(--stagger-delay, 0ms);
+}
+
+.reveal.active .reveal-item,
+.reveal-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Compositor-Only Click Feedback Ring (transform + opacity only, zero layout/blur) */
+.click-ring {
+  position: fixed;
+  width: 44px;
+  height: 44px;
+  margin-left: -22px;
+  margin-top: -22px;
+  border-radius: 999px;
+  border: 1.5px solid rgba(29, 53, 87, 0.35);
+  pointer-events: none;
+  z-index: 9999;
+  transform: scale(0.25);
+  opacity: 0.65;
+  animation: click-ring-out 360ms var(--ease-fluid) forwards;
+  will-change: transform, opacity;
+}
+
+@keyframes click-ring-out {
+  to {
+    transform: scale(1.15);
+    opacity: 0;
+  }
+}
+
+/* Stack Chip Filter Entrance */
+.stack-chip {
+  transition:
+    opacity 180ms var(--ease-fluid),
+    transform 180ms var(--ease-fluid);
+}
+
+.stack-chip.entering {
+  opacity: 0;
+  transform: scale(0.95);
 }
 
 /* Readout micro-transition */

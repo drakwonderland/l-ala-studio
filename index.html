@@ -43,12 +43,13 @@
         l-ala.studio
       </a>
       <nav class="flex items-center gap-6 font-sans text-sm font-medium text-[#4a4d52]">
-        <a href="#projects" class="hover:text-[#111214] transition-colors duration-150">Work</a>
-        <a href="#recognition" class="hover:text-[#111214] transition-colors duration-150 hidden sm:inline">Experience</a>
-        <a href="#stack" class="hover:text-[#111214] transition-colors duration-150 hidden sm:inline">Stack</a>
+        <a href="#projects" data-section="projects" class="nav-link hover:text-[#111214]">Work</a>
+        <a href="#recognition" data-section="recognition" class="nav-link hover:text-[#111214] hidden sm:inline">Experience</a>
+        <a href="#stack" data-section="stack" class="nav-link hover:text-[#111214] hidden sm:inline">Stack</a>
         <a href="#contact" class="btn-tactile px-3.5 py-1.5 rounded-full border border-black/15 text-xs sm:text-sm text-[#111214] hover:border-black/35">Contact</a>
       </nav>
     </div>
+    <span id="scroll-progress" class="scroll-progress" aria-hidden="true"></span>
   </header>
 
   <main class="pt-28 sm:pt-36 px-5 sm:px-6 max-w-5xl mx-auto space-y-24 sm:space-y-32">
@@ -242,7 +243,7 @@
 
       <!-- Secondary Projects (Editorial Rows) -->
       <div class="divide-y divide-black/[0.12] hairline-top hairline-bottom">
-        <article class="editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <article class="reveal-item editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div class="space-y-1.5 max-w-2xl">
             <div class="flex items-center gap-3 font-mono text-xs text-[#71757d]">
               <span>Meralco IDOL Hackathon 2026</span>
@@ -294,7 +295,7 @@
           </div>
         </article>
 
-        <article class="editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+        <article class="reveal-item editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
           <div class="space-y-1.5 max-w-2xl">
             <div class="flex items-center gap-3 font-mono text-xs text-[#71757d]">
               <span>Web application</span>
@@ -325,7 +326,7 @@
 
       <div class="divide-y divide-black/[0.12]">
         <!-- Meralco IDOL Hackathon 2026 -->
-        <div class="editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+        <div class="reveal-item editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
           <div class="md:col-span-4 space-y-1">
             <span class="font-mono text-xs text-[#1d3557] block">2026 &middot; Hackathon</span>
             <h3 class="text-lg font-medium text-[#111214]">Meralco IDOL Hackathon</h3>
@@ -343,7 +344,7 @@
         </div>
 
         <!-- B.S. in Computer Science -->
-        <div class="editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+        <div class="reveal-item editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
           <div class="md:col-span-4 space-y-1">
             <span class="font-mono text-xs text-[#71757d] block">In progress &middot; Degree</span>
             <h3 class="text-lg font-medium text-[#111214]">B.S. in Computer Science</h3>
@@ -357,7 +358,7 @@
         </div>
 
         <!-- Don Bosco Academy Capstone -->
-        <div class="editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+        <div class="reveal-item editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
           <div class="md:col-span-4 space-y-1">
             <span class="font-mono text-xs text-[#71757d] block tabular-nums">2026 &middot; Recognition</span>
             <h3 class="text-lg font-medium text-[#111214]">Don Bosco Academy</h3>
@@ -388,25 +389,25 @@
       </div>
 
       <div class="flex flex-wrap gap-2.5 font-mono text-xs pt-2">
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">C</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">C++</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">Java</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">PHP</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">JavaScript</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">TypeScript</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">Python</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">SQL</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">HTML5</span>
-        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">CSS3</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">C</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">C++</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">Java</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">PHP</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">JavaScript</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">TypeScript</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">Python</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">SQL</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">HTML5</span>
+        <span data-stack-cat="languages" class="stack-chip px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">CSS3</span>
 
-        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">Linux CLI</span>
-        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">Git</span>
-        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">GitHub</span>
-        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">VS Code</span>
+        <span data-stack-cat="systems" class="stack-chip px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">Linux CLI</span>
+        <span data-stack-cat="systems" class="stack-chip px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">Git</span>
+        <span data-stack-cat="systems" class="stack-chip px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">GitHub</span>
+        <span data-stack-cat="systems" class="stack-chip px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">VS Code</span>
 
-        <span data-stack-cat="hardware" class="px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">Arduino Uno</span>
-        <span data-stack-cat="hardware" class="px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">MLX90614 / HC-SR04 / MQ-Series</span>
-        <span data-stack-cat="hardware" class="px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">FDM PLA Prototyping</span>
+        <span data-stack-cat="hardware" class="stack-chip px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">Arduino Uno</span>
+        <span data-stack-cat="hardware" class="stack-chip px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">MLX90614 / HC-SR04 / MQ-Series</span>
+        <span data-stack-cat="hardware" class="stack-chip px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">FDM PLA Prototyping</span>
       </div>
     </section>
 
