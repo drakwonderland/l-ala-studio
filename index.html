@@ -16,7 +16,7 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css">
   <script src="main.js" defer></script>
@@ -27,6 +27,7 @@
         extend: {
           fontFamily: {
             sans: ['Inter', 'sans-serif'],
+            serif: ['Newsreader', 'serif'],
             mono: ['JetBrains Mono', 'monospace'],
           }
         }
@@ -34,350 +35,408 @@
     }
   </script>
 </head>
-<body class="selection:bg-white/20 selection:text-[#f1f5f9] pb-20">
+<body class="selection:bg-[#1d3557] selection:text-[#f6f5f1] pb-24">
 
-  <div class="glass-backdrop" aria-hidden="true"></div>
+  <header class="editorial-nav fixed top-0 w-full z-50 h-14 flex items-center">
+    <div class="max-w-5xl mx-auto px-6 w-full flex justify-between items-center">
+      <a href="index.html" class="font-mono text-sm font-medium text-[#111214] tracking-tight">
+        l-ala.studio
+      </a>
+      <nav class="flex items-center gap-6 font-sans text-sm font-medium text-[#4a4d52]">
+        <a href="#projects" class="hover:text-[#111214] transition-colors duration-150">Work</a>
+        <a href="#recognition" class="hover:text-[#111214] transition-colors duration-150 hidden sm:inline">Experience</a>
+        <a href="#stack" class="hover:text-[#111214] transition-colors duration-150 hidden sm:inline">Stack</a>
+        <a href="#contact" class="btn-tactile px-3.5 py-1.5 rounded-full border border-black/15 text-xs sm:text-sm text-[#111214] hover:border-black/35">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-  <div class="content-layer">
-    <header class="apple-nav fixed top-0 w-full z-50 h-14 flex items-center">
-      <div class="max-w-5xl mx-auto px-6 w-full flex justify-between items-center">
-        <a href="index.html" class="font-mono text-sm font-medium text-[#f1f5f9] tracking-tight">
-          l-ala.studio
-        </a>
-        <nav class="flex items-center gap-5 sm:gap-6 font-sans text-sm font-medium text-[#b8c4d4]">
-          <a href="#projects" class="hover:text-[#f1f5f9] transition-colors duration-150">Projects</a>
-          <a href="#stack" class="hover:text-[#f1f5f9] transition-colors duration-150 hidden sm:inline">Stack</a>
-          <a href="#background" class="hover:text-[#f1f5f9] transition-colors duration-150 hidden sm:inline">Background</a>
-          <a href="#contact" class="btn-tactile glass-pill px-3.5 py-1.5 rounded-full text-xs sm:text-sm text-[#f1f5f9]">Contact</a>
-        </nav>
+  <main class="pt-28 sm:pt-36 px-5 sm:px-6 max-w-5xl mx-auto space-y-24 sm:space-y-32">
+
+    <!-- Editorial Hero -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end pb-12 hairline-bottom">
+      <div class="lg:col-span-8 space-y-6">
+        <p class="font-mono text-xs text-[#71757d]">
+          Computer science undergraduate &middot; Philippines
+        </p>
+
+        <h1 class="font-serif text-5xl sm:text-7xl font-normal tracking-[-0.022em] text-[#111214] leading-[1.02]">
+          Uzel Escobido
+        </h1>
+
+        <p class="text-base sm:text-xl text-[#4a4d52] max-w-xl leading-relaxed">
+          Building low-latency architectures, offline IoT telemetry devices, and resilient full-stack systems.
+        </p>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="#projects" class="btn-tactile px-6 py-2.5 rounded-full bg-[#1d3557] text-[#f6f5f1] text-sm font-medium hover:bg-[#152843]">
+            Explore work
+          </a>
+          <a href="https://github.com/drakwonderland" target="_blank" rel="noopener noreferrer" class="btn-tactile px-6 py-2.5 rounded-full border border-black/15 text-sm font-medium text-[#111214] hover:border-black/35">
+            GitHub
+          </a>
+        </div>
       </div>
-    </header>
 
-    <main class="pt-28 sm:pt-36 px-4 sm:px-6 max-w-5xl mx-auto space-y-24 sm:space-y-32">
+      <aside class="lg:col-span-4 space-y-3 font-mono text-xs pt-6 lg:pt-0 hairline-top lg:border-t-0 lg:border-l lg:border-black/10 lg:pl-8">
+        <div class="flex items-center justify-between py-1">
+          <span class="text-[#71757d]">Availability</span>
+          <span class="text-[#1d3557] font-medium">Open to internships</span>
+        </div>
+        <div class="flex items-center justify-between py-1">
+          <span class="text-[#71757d]">Focus</span>
+          <span class="text-[#111214]">Offline-first systems</span>
+        </div>
+        <div class="flex items-center justify-between py-1">
+          <span class="text-[#71757d]">Hardware</span>
+          <span class="text-[#111214] tabular-nums">Arduino / C++</span>
+        </div>
+        <div class="flex items-center justify-between py-1">
+          <span class="text-[#71757d]">Recent</span>
+          <span class="text-[#111214]">Meralco IDOL 2026</span>
+        </div>
+      </aside>
+    </section>
 
-      <!-- Hero -->
-      <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pt-4">
-        <div class="lg:col-span-8 space-y-6">
-          <p class="font-mono text-xs text-[#7c8ba1]">
-            Computer science undergraduate
+    <!-- Featured Work + Interactive Telemetry Bench -->
+    <section id="projects" class="space-y-12 reveal">
+      <div class="flex items-baseline justify-between hairline-bottom pb-4">
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-[-0.015em] text-[#111214]">
+          Selected work
+        </h2>
+        <span class="font-mono text-xs text-[#71757d]">Systems &amp; web</span>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+        <!-- AlertShield -->
+        <article class="lg:col-span-7 space-y-6">
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-[#eceae3] border border-black/10 flex items-center justify-center p-1.5">
+                <img src="alertshield-logo.png" alt="AlertShield logo" class="h-full w-auto object-contain" />
+              </div>
+              <h3 class="text-xl sm:text-2xl font-medium text-[#111214]">AlertShield</h3>
+            </div>
+            <span class="font-mono text-xs text-[#1d3557]">
+              Best Capstone Project
+            </span>
+          </div>
+
+          <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
+            An offline multi-hazard early warning system combining infrared thermopile telemetry, ultrasonic flood monitoring, and gas sensing to protect rural households without internet dependence.
           </p>
 
-          <h1 class="text-4xl sm:text-6xl font-semibold tracking-[-0.022em] text-[#f1f5f9] leading-[1.05]">
-            Uzel Escobido
-          </h1>
-
-          <p class="text-base sm:text-lg text-[#b8c4d4] max-w-xl leading-relaxed">
-            Building low-latency architectures, offline IoT telemetry devices, and full-stack systems.
-          </p>
-
-          <div class="flex flex-wrap items-center gap-3 pt-2">
-            <a href="#projects" class="btn-tactile px-6 py-2.5 rounded-full bg-[#f1f5f9] text-[#04070f] text-sm font-medium hover:bg-white">
-              Explore projects
-            </a>
-            <a href="https://github.com/drakwonderland" target="_blank" rel="noopener noreferrer" class="btn-tactile glass-pill px-6 py-2.5 rounded-full text-sm font-medium text-[#f1f5f9]">
-              GitHub
-            </a>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 hairline-top hairline-bottom font-mono tabular-nums">
+            <div>
+              <span class="text-xs text-[#71757d] block mb-1">Reliability</span>
+              <span class="text-sm font-medium text-[#111214]">100% (90 trials)</span>
+            </div>
+            <div>
+              <span class="text-xs text-[#71757d] block mb-1">Gas response</span>
+              <span class="text-sm font-medium text-[#111214]">1.01 s avg</span>
+            </div>
+            <div>
+              <span class="text-xs text-[#71757d] block mb-1">IR error</span>
+              <span class="text-sm font-medium text-[#111214]">0.100 °C</span>
+            </div>
+            <div>
+              <span class="text-xs text-[#71757d] block mb-1">Network</span>
+              <span class="text-sm font-medium text-[#111214]">Zero-cloud</span>
+            </div>
           </div>
-        </div>
 
-        <aside class="lg:col-span-4 liquid-card p-6 space-y-3 font-mono text-xs">
-          <div class="flex items-center justify-between text-[#7c8ba1]">
-            <span>Availability</span>
-            <span class="text-[#f1f5f9]">Open to internships</span>
-          </div>
-          <div class="flex items-center justify-between text-[#7c8ba1]">
-            <span>Focus</span>
-            <span class="text-[#f1f5f9]">Offline-first systems</span>
-          </div>
-          <div class="flex items-center justify-between text-[#7c8ba1]">
-            <span>Hardware</span>
-            <span class="text-[#f1f5f9] tabular-nums">Arduino / C++</span>
-          </div>
-          <div class="flex items-center justify-between text-[#7c8ba1]">
-            <span>Location</span>
-            <span class="text-[#f1f5f9]">Philippines</span>
-          </div>
-        </aside>
-      </section>
-
-      <!-- Featured Work + Interactive Telemetry Moment -->
-      <section id="projects" class="space-y-8 reveal">
-        <div class="border-b border-white/10 pb-4">
-          <h2 class="text-2xl sm:text-3xl font-medium tracking-[-0.015em] text-[#f1f5f9]">
-            Featured work
-          </h2>
-        </div>
-
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <!-- Primary Project: AlertShield -->
-          <article class="lg:col-span-7 liquid-card p-6 sm:p-8 flex flex-col justify-between space-y-6">
-            <div class="space-y-5">
-              <div class="flex items-center justify-between gap-4">
-                <div class="flex items-center gap-3">
-                  <div class="w-10 h-10 rounded-xl glass-pill flex items-center justify-center p-2">
-                    <img src="alertshield-logo.png" alt="AlertShield logo" class="h-full w-auto object-contain" />
-                  </div>
-                  <h3 class="text-xl sm:text-2xl font-medium text-[#f1f5f9]">AlertShield</h3>
+          <!-- Smooth Grid-Rows Architecture Expander -->
+          <div id="alertshield-arch" class="expander" data-open="false">
+            <div class="expander-inner">
+              <div class="expander-content pb-4 hairline-bottom space-y-2 text-xs font-mono text-[#4a4d52]">
+                <div class="flex justify-between gap-4">
+                  <span class="text-[#71757d]">Controller</span>
+                  <span class="text-[#111214]">Bare-metal Arduino Uno (C++)</span>
                 </div>
-                <span class="glass-pill px-3 py-1 rounded-full text-xs font-mono text-[#b8c4d4]">
-                  Best Capstone
-                </span>
-              </div>
-
-              <p class="text-sm sm:text-base text-[#b8c4d4] leading-relaxed">
-                An offline multi-hazard early warning system combining infrared thermopile telemetry, ultrasonic flood monitoring, and gas sensing to protect rural households without internet dependence.
-              </p>
-
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10 font-mono tabular-nums">
-                <div>
-                  <span class="text-xs text-[#7c8ba1] block mb-1">Reliability</span>
-                  <span class="text-sm font-medium text-[#f1f5f9]">100% (90 trials)</span>
+                <div class="flex justify-between gap-4">
+                  <span class="text-[#71757d]">Flood stage</span>
+                  <span class="text-[#111214]">HC-SR04 in 2-in PVC pylon (15 / 30 cm)</span>
                 </div>
-                <div>
-                  <span class="text-xs text-[#7c8ba1] block mb-1">Gas response</span>
-                  <span class="text-sm font-medium text-[#f1f5f9]">1.01 s avg</span>
-                </div>
-                <div>
-                  <span class="text-xs text-[#7c8ba1] block mb-1">IR error</span>
-                  <span class="text-sm font-medium text-[#f1f5f9]">0.100 °C</span>
-                </div>
-                <div>
-                  <span class="text-xs text-[#7c8ba1] block mb-1">Network</span>
-                  <span class="text-sm font-medium text-[#f1f5f9]">Zero-cloud</span>
-                </div>
-              </div>
-
-              <!-- Progressive Disclosure Architecture Expander -->
-              <div id="alertshield-arch" class="expander" data-open="false">
-                <div class="expander-inner">
-                  <div class="expander-content pt-4 border-t border-white/10 space-y-2 text-xs font-mono text-[#b8c4d4]">
-                    <div class="flex justify-between gap-4">
-                      <span class="text-[#7c8ba1]">Controller</span>
-                      <span class="text-[#f1f5f9]">Bare-metal Arduino Uno (C++)</span>
-                    </div>
-                    <div class="flex justify-between gap-4">
-                      <span class="text-[#7c8ba1]">Flood stage</span>
-                      <span class="text-[#f1f5f9]">HC-SR04 in 2-in PVC pylon (15 / 30 cm)</span>
-                    </div>
-                    <div class="flex justify-between gap-4">
-                      <span class="text-[#7c8ba1]">Thermal / Gas</span>
-                      <span class="text-[#f1f5f9]">MLX90614 IR + MQ-series threshold loop</span>
-                    </div>
-                  </div>
+                <div class="flex justify-between gap-4">
+                  <span class="text-[#71757d]">Thermal / Gas</span>
+                  <span class="text-[#111214]">MLX90614 IR + MQ-series threshold loop</span>
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
-              <div class="flex items-center gap-2 font-mono text-xs text-[#b8c4d4]">
-                <span class="glass-pill px-3 py-1.5 rounded-full">Arduino</span>
-                <span class="glass-pill px-3 py-1.5 rounded-full">C++</span>
-                <button
-                  type="button"
-                  data-expander-btn="alertshield-arch"
-                  aria-expanded="false"
-                  aria-controls="alertshield-arch"
-                  class="btn-tactile px-3.5 py-1.5 rounded-full border border-white/15 text-[#b8c4d4] hover:text-[#f1f5f9] hover:border-white/30"
-                >
-                  <span data-expander-label>Architecture</span>
-                </button>
+          <div class="flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2 font-mono text-xs text-[#4a4d52]">
+              <span class="px-2.5 py-1 rounded-full bg-[#eceae3]">Arduino</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#eceae3]">C++</span>
+              <button
+                type="button"
+                data-expander-btn="alertshield-arch"
+                aria-expanded="false"
+                aria-controls="alertshield-arch"
+                class="btn-tactile px-3 py-1 rounded-full border border-black/15 text-[#111214] hover:border-black/35"
+              >
+                <span data-expander-label>Architecture</span>
+              </button>
+            </div>
+            <a href="alertshield.html" class="btn-tactile text-sm font-medium text-[#1d3557] hover:text-[#111214] inline-flex items-center gap-1.5 py-1">
+              Read case study <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <!-- Interactive Sensor Bench (Flat Paper Instrument Well) -->
+        <div id="telemetry-bench" class="lg:col-span-5 rounded-xl bg-[#eceae3] border border-black/10 p-6 flex flex-col justify-between space-y-5">
+          <div class="space-y-4">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <span id="tel-dot" class="w-2 h-2 rounded-full bg-[#1d3557] transition-colors duration-150"></span>
+                <span class="font-mono text-xs font-medium text-[#111214]">Sensor bench</span>
               </div>
-              <a href="alertshield.html" class="btn-tactile text-sm font-medium text-[#8ab4e8] hover:text-[#f1f5f9] inline-flex items-center gap-1.5 py-1">
-                Read case study <span aria-hidden="true">&rarr;</span>
+              <span id="tel-status" class="font-mono text-xs text-[#4a4d52] transition-colors duration-150">Nominal standby</span>
+            </div>
+
+            <div class="rounded-lg bg-[#f6f5f1] border border-black/10 p-3">
+              <canvas id="telemetry-wave" class="w-full h-20 block" aria-label="Live sensor signal trace"></canvas>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2.5 font-mono text-xs tabular-nums">
+              <div class="p-3 rounded-lg bg-[#f6f5f1] border border-black/10">
+                <span class="text-[#71757d] block mb-1">MLX90614 IR</span>
+                <span id="tel-ir" class="readout-value block text-sm font-medium text-[#111214]">27.4 °C</span>
+              </div>
+              <div class="p-3 rounded-lg bg-[#f6f5f1] border border-black/10">
+                <span class="text-[#71757d] block mb-1">HC-SR04 flood</span>
+                <span id="tel-flood" class="readout-value block text-sm font-medium text-[#111214]">4 cm</span>
+              </div>
+              <div class="p-3 rounded-lg bg-[#f6f5f1] border border-black/10">
+                <span class="text-[#71757d] block mb-1">MQ-series gas</span>
+                <span id="tel-gas" class="readout-value block text-sm font-medium text-[#111214]">180 ppm</span>
+              </div>
+              <div class="p-3 rounded-lg bg-[#f6f5f1] border border-black/10">
+                <span class="text-[#71757d] block mb-1">Trigger</span>
+                <span id="tel-latency" class="readout-value block text-sm font-medium text-[#1d3557]">0 ms (local)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <span class="font-mono text-xs text-[#71757d] block">Simulate hazard state</span>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs">
+              <button type="button" data-telemetry-mode="nominal" aria-pressed="true" class="btn-tactile px-2.5 py-2 rounded-full bg-[#111214] text-[#f6f5f1] border border-[#111214]">
+                Nominal
+              </button>
+              <button type="button" data-telemetry-mode="flood" aria-pressed="false" class="btn-tactile px-2.5 py-2 rounded-full text-[#4a4d52] border border-black/15 hover:text-[#111214]">
+                Flood
+              </button>
+              <button type="button" data-telemetry-mode="thermal" aria-pressed="false" class="btn-tactile px-2.5 py-2 rounded-full text-[#4a4d52] border border-black/15 hover:text-[#111214]">
+                Thermal
+              </button>
+              <button type="button" data-telemetry-mode="gas" aria-pressed="false" class="btn-tactile px-2.5 py-2 rounded-full text-[#4a4d52] border border-black/15 hover:text-[#111214]">
+                Gas
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Secondary Projects (Editorial Rows) -->
+      <div class="divide-y divide-black/[0.12] hairline-top hairline-bottom">
+        <article class="editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div class="space-y-1.5 max-w-2xl">
+            <div class="flex items-center gap-3 font-mono text-xs text-[#71757d]">
+              <span>Meralco IDOL Hackathon 2026</span>
+              <span>&middot;</span>
+              <span>Team Ohm My Grid</span>
+            </div>
+            <h3 class="text-xl font-medium text-[#111214]">KuryenTipid</h3>
+            <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
+              Proactive electricity budgeting and bill-transparency app featuring AI-powered bill scanning, smart and analog meter tracking, a smart plug simulator, and a conversational English/Taglish energy assistant.
+            </p>
+          </div>
+          <div class="flex flex-col sm:items-end gap-3 shrink-0">
+            <div class="flex flex-wrap gap-2 font-mono text-xs text-[#4a4d52]">
+              <span class="px-3 py-1 rounded-full bg-[#eceae3]">TypeScript</span>
+              <span class="px-3 py-1 rounded-full bg-[#eceae3]">PLpgSQL</span>
+            </div>
+            <a href="https://github.com/mrmeralco/TeamOhmMyGrid" target="_blank" rel="noopener noreferrer" class="btn-tactile text-sm font-medium text-[#1d3557] hover:text-[#111214] inline-flex items-center gap-1.5">
+              View repository <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div class="space-y-1.5 max-w-2xl">
+            <div class="flex items-center gap-3 font-mono text-xs text-[#71757d]">
+              <span>University Final Requirement</span>
+              <span>&middot;</span>
+              <span>Static Web App</span>
+            </div>
+            <h3 class="text-xl font-medium text-[#111214]">Nvidium</h3>
+            <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
+              Multi-page workstation workshop proposal and interactive custom PC quote configurator with part compatibility rules, SLA care plans, and an installment calculator.
+            </p>
+          </div>
+          <div class="flex flex-col sm:items-end gap-3 shrink-0">
+            <div class="flex flex-wrap gap-2 font-mono text-xs text-[#4a4d52]">
+              <span class="px-3 py-1 rounded-full bg-[#eceae3]">JavaScript</span>
+              <span class="px-3 py-1 rounded-full bg-[#eceae3]">Bootstrap 5</span>
+              <span class="px-3 py-1 rounded-full bg-[#eceae3]">HTML / CSS</span>
+            </div>
+            <div class="flex items-center gap-4 text-sm font-medium">
+              <a href="https://ccs10.l-ala.studio" target="_blank" rel="noopener noreferrer" class="btn-tactile text-[#1d3557] hover:text-[#111214] inline-flex items-center gap-1">
+                Live site <span aria-hidden="true">&rarr;</span>
+              </a>
+              <a href="https://github.com/drakwonderland/Nvidium" target="_blank" rel="noopener noreferrer" class="btn-tactile text-[#4a4d52] hover:text-[#111214] inline-flex items-center gap-1">
+                Repository <span aria-hidden="true">&rarr;</span>
               </a>
             </div>
-          </article>
-
-          <!-- Interactive Moment: Offline Sensor Bench -->
-          <div id="telemetry-bench" class="lg:col-span-5 liquid-card p-6 sm:p-8 flex flex-col justify-between space-y-5">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <div class="flex items-center gap-2">
-                  <span id="tel-dot" class="w-2 h-2 rounded-full bg-[#8ab4e8] transition-colors duration-150"></span>
-                  <span class="font-mono text-xs text-[#f1f5f9]">Sensor bench</span>
-                </div>
-                <span id="tel-status" class="font-mono text-xs text-[#7c8ba1] transition-colors duration-150">Nominal standby</span>
-              </div>
-
-              <div class="rounded-xl bg-black/25 border border-white/10 p-3">
-                <canvas id="telemetry-wave" class="w-full h-20 block" aria-label="Live sensor signal trace"></canvas>
-              </div>
-
-              <div class="grid grid-cols-2 gap-3 font-mono text-xs tabular-nums">
-                <div class="p-3 rounded-xl bg-black/20 border border-white/10">
-                  <span class="text-[#7c8ba1] block mb-1">MLX90614 IR</span>
-                  <span id="tel-ir" class="readout-value block text-sm font-medium text-[#f1f5f9]">27.4 °C</span>
-                </div>
-                <div class="p-3 rounded-xl bg-black/20 border border-white/10">
-                  <span class="text-[#7c8ba1] block mb-1">HC-SR04 flood</span>
-                  <span id="tel-flood" class="readout-value block text-sm font-medium text-[#f1f5f9]">4 cm</span>
-                </div>
-                <div class="p-3 rounded-xl bg-black/20 border border-white/10">
-                  <span class="text-[#7c8ba1] block mb-1">MQ-series gas</span>
-                  <span id="tel-gas" class="readout-value block text-sm font-medium text-[#f1f5f9]">180 ppm</span>
-                </div>
-                <div class="p-3 rounded-xl bg-black/20 border border-white/10">
-                  <span class="text-[#7c8ba1] block mb-1">Trigger</span>
-                  <span id="tel-latency" class="readout-value block text-sm font-medium text-[#f1f5f9]">0 ms (local)</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="space-y-2 pt-2">
-              <span class="font-mono text-xs text-[#7c8ba1] block">Simulate hazard state</span>
-              <div class="grid grid-cols-2 sm:grid-cols-4 gap-2 font-mono text-xs">
-                <button type="button" data-telemetry-mode="nominal" aria-pressed="true" class="btn-tactile px-2.5 py-2 rounded-full bg-white/15 text-[#f1f5f9] border border-white/25">
-                  Nominal
-                </button>
-                <button type="button" data-telemetry-mode="flood" aria-pressed="false" class="btn-tactile px-2.5 py-2 rounded-full text-[#7c8ba1] border border-white/10 hover:text-[#f1f5f9]">
-                  Flood
-                </button>
-                <button type="button" data-telemetry-mode="thermal" aria-pressed="false" class="btn-tactile px-2.5 py-2 rounded-full text-[#7c8ba1] border border-white/10 hover:text-[#f1f5f9]">
-                  Thermal
-                </button>
-                <button type="button" data-telemetry-mode="gas" aria-pressed="false" class="btn-tactile px-2.5 py-2 rounded-full text-[#7c8ba1] border border-white/10 hover:text-[#f1f5f9]">
-                  Gas
-                </button>
-              </div>
-            </div>
           </div>
-        </div>
+        </article>
 
-        <!-- Secondary Project -->
-        <article class="liquid-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6">
-          <div class="space-y-2 max-w-2xl">
-            <div class="flex items-center gap-3 font-mono text-xs text-[#7c8ba1]">
+        <article class="editorial-row py-6 px-3 -mx-3 rounded-lg flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <div class="space-y-1.5 max-w-2xl">
+            <div class="flex items-center gap-3 font-mono text-xs text-[#71757d]">
               <span>Web application</span>
               <span>&middot;</span>
               <span>Interactive</span>
             </div>
-            <h3 class="text-xl font-medium text-[#f1f5f9]">Interactive Web Engine</h3>
-            <p class="text-sm sm:text-base text-[#b8c4d4] leading-relaxed">
+            <h3 class="text-xl font-medium text-[#111214]">Interactive Web Engine</h3>
+            <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
               State-driven front-end application built with reactive UI patterns, custom routing, and multi-step presentation components.
             </p>
           </div>
-          <div class="flex flex-wrap gap-2 font-mono text-xs text-[#b8c4d4] shrink-0">
-            <span class="glass-pill px-3 py-1.5 rounded-full">JavaScript</span>
-            <span class="glass-pill px-3 py-1.5 rounded-full">Tailwind CSS</span>
+          <div class="flex flex-wrap gap-2 font-mono text-xs text-[#4a4d52] shrink-0">
+            <span class="px-3 py-1 rounded-full bg-[#eceae3]">JavaScript</span>
+            <span class="px-3 py-1 rounded-full bg-[#eceae3]">Tailwind CSS</span>
           </div>
         </article>
-      </section>
+      </div>
+    </section>
 
-      <!-- Tech Stack & Tooling -->
-      <section id="stack" class="space-y-6 reveal">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-white/10 pb-4">
-          <h2 class="text-2xl sm:text-3xl font-medium tracking-[-0.015em] text-[#f1f5f9]">
-            Tech stack &amp; tooling
-          </h2>
-          <div class="flex flex-wrap gap-2 font-mono text-xs" role="group" aria-label="Filter tech stack">
-            <button type="button" data-stack-filter="all" aria-pressed="true" class="btn-tactile px-3.5 py-2 rounded-full bg-white/15 text-[#f1f5f9] border border-white/25">All</button>
-            <button type="button" data-stack-filter="languages" aria-pressed="false" class="btn-tactile px-3.5 py-2 rounded-full text-[#7c8ba1] border border-white/10 hover:text-[#f1f5f9]">Languages</button>
-            <button type="button" data-stack-filter="systems" aria-pressed="false" class="btn-tactile px-3.5 py-2 rounded-full text-[#7c8ba1] border border-white/10 hover:text-[#f1f5f9]">Systems</button>
-            <button type="button" data-stack-filter="hardware" aria-pressed="false" class="btn-tactile px-3.5 py-2 rounded-full text-[#7c8ba1] border border-white/10 hover:text-[#f1f5f9]">Hardware</button>
+    <!-- Experience, Hackathons & Education -->
+    <section id="recognition" class="space-y-8 reveal">
+      <div class="flex items-baseline justify-between hairline-bottom pb-4">
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-[-0.015em] text-[#111214]">
+          Experience &amp; education
+        </h2>
+        <span class="font-mono text-xs text-[#71757d]">2026</span>
+      </div>
+
+      <div class="divide-y divide-black/[0.12]">
+        <!-- Meralco IDOL Hackathon 2026 -->
+        <div class="editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+          <div class="md:col-span-4 space-y-1">
+            <span class="font-mono text-xs text-[#1d3557] block">2026 &middot; Hackathon</span>
+            <h3 class="text-lg font-medium text-[#111214]">Meralco IDOL Hackathon</h3>
+            <p class="font-mono text-xs text-[#71757d]">Meralco Power Academy</p>
+          </div>
+          <div class="md:col-span-8 space-y-2">
+            <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
+              Built <a href="https://github.com/mrmeralco/TeamOhmMyGrid" target="_blank" rel="noopener noreferrer" class="text-[#1d3557] underline underline-offset-4 hover:text-[#111214]">KuryenTipid</a> with Team Ohm My Grid during Meralco Power Academy&rsquo;s 24-hour national undergraduate sprint (<span class="italic">&ldquo;Digital Sparks: Break Boundaries and Build Possibilities&rdquo;</span>) to help households mitigate bill shock through proactive energy analytics.
+            </p>
+            <div class="flex flex-wrap gap-2 font-mono text-xs text-[#4a4d52] pt-1">
+              <span class="px-2.5 py-1 rounded-full bg-[#eceae3]">Team Ohm My Grid</span>
+              <span class="px-2.5 py-1 rounded-full bg-[#eceae3]">24-hour sprint</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- B.S. in Computer Science -->
+        <div class="editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+          <div class="md:col-span-4 space-y-1">
+            <span class="font-mono text-xs text-[#71757d] block">In progress &middot; Degree</span>
+            <h3 class="text-lg font-medium text-[#111214]">B.S. in Computer Science</h3>
+            <p class="font-mono text-xs text-[#71757d]">Undergraduate</p>
+          </div>
+          <div class="md:col-span-8">
+            <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
+              Focusing on systems programming, data structures and algorithms, embedded C++ telemetry, and resilient full-stack web architectures.
+            </p>
           </div>
         </div>
 
-        <div class="liquid-card p-6 sm:p-8">
-          <div class="flex flex-wrap gap-2.5 font-mono text-xs">
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">C</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">C++</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">Java</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">PHP</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">JavaScript</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">Python</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">SQL</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">HTML5</span>
-            <span data-stack-cat="languages" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">CSS3</span>
-
-            <span data-stack-cat="systems" class="glass-pill px-3.5 py-1.5 rounded-full text-[#b8c4d4]">Linux CLI</span>
-            <span data-stack-cat="systems" class="glass-pill px-3.5 py-1.5 rounded-full text-[#b8c4d4]">Git</span>
-            <span data-stack-cat="systems" class="glass-pill px-3.5 py-1.5 rounded-full text-[#b8c4d4]">GitHub</span>
-            <span data-stack-cat="systems" class="glass-pill px-3.5 py-1.5 rounded-full text-[#b8c4d4]">VS Code</span>
-
-            <span data-stack-cat="hardware" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">Arduino Uno</span>
-            <span data-stack-cat="hardware" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">MLX90614 / HC-SR04 / MQ-Series</span>
-            <span data-stack-cat="hardware" class="glass-pill px-3.5 py-1.5 rounded-full text-[#f1f5f9]">FDM PLA Prototyping</span>
+        <!-- Don Bosco Academy Capstone -->
+        <div class="editorial-row py-6 px-3 -mx-3 rounded-lg grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8">
+          <div class="md:col-span-4 space-y-1">
+            <span class="font-mono text-xs text-[#71757d] block tabular-nums">2026 &middot; Recognition</span>
+            <h3 class="text-lg font-medium text-[#111214]">Don Bosco Academy</h3>
+            <p class="font-mono text-xs text-[#71757d]">Grade 12 STEM</p>
+          </div>
+          <div class="md:col-span-8">
+            <p class="text-sm sm:text-base text-[#4a4d52] leading-relaxed">
+              Awarded Best Capstone Project for AlertShield, an offline multi-hazard disaster detecting device evaluated across 90 controlled sensor trials.
+            </p>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- Education & Recognition -->
-      <section id="background" class="space-y-6 reveal">
-        <div class="border-b border-white/10 pb-4">
-          <h2 class="text-2xl sm:text-3xl font-medium tracking-[-0.015em] text-[#f1f5f9]">
-            Education &amp; recognition
-          </h2>
+    <!-- Tech Stack & Tooling with Sliding Indicator -->
+    <section id="stack" class="space-y-6 reveal">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 hairline-bottom pb-4">
+        <h2 class="text-2xl sm:text-3xl font-medium tracking-[-0.015em] text-[#111214]">
+          Tech stack &amp; tooling
+        </h2>
+        <div id="stack-filter-track" class="filter-track font-mono text-xs" role="group" aria-label="Filter tech stack">
+          <span id="stack-filter-indicator" class="filter-indicator" aria-hidden="true"></span>
+          <button type="button" data-stack-filter="all" aria-pressed="true" class="filter-btn px-3.5 py-1.5 rounded-full text-[#f6f5f1]">All</button>
+          <button type="button" data-stack-filter="languages" aria-pressed="false" class="filter-btn px-3.5 py-1.5 rounded-full text-[#4a4d52] hover:text-[#111214]">Languages</button>
+          <button type="button" data-stack-filter="systems" aria-pressed="false" class="filter-btn px-3.5 py-1.5 rounded-full text-[#4a4d52] hover:text-[#111214]">Systems</button>
+          <button type="button" data-stack-filter="hardware" aria-pressed="false" class="filter-btn px-3.5 py-1.5 rounded-full text-[#4a4d52] hover:text-[#111214]">Hardware</button>
         </div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div class="liquid-card p-6 sm:p-8 space-y-4">
-            <div class="flex items-center justify-between font-mono text-xs text-[#7c8ba1] tabular-nums">
-              <span>Education</span>
-              <span class="text-[#b8c4d4]">In progress</span>
-            </div>
-            <div class="space-y-1">
-              <h3 class="text-lg font-medium text-[#f1f5f9]">B.S. in Computer Science</h3>
-              <p class="text-sm text-[#b8c4d4]">Undergraduate &middot; Systems, Algorithms &amp; Full-Stack Engineering</p>
-            </div>
-            <div class="pt-4 border-t border-white/10 space-y-1">
-              <div class="flex items-center justify-between text-xs font-mono text-[#7c8ba1] tabular-nums">
-                <span>Don Bosco Academy</span>
-                <span>2026</span>
-              </div>
-              <p class="text-sm text-[#b8c4d4]">Grade 12 STEM &middot; Best Capstone Project (AlertShield)</p>
-            </div>
-          </div>
+      <div class="flex flex-wrap gap-2.5 font-mono text-xs pt-2">
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">C</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">C++</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">Java</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">PHP</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">JavaScript</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">TypeScript</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">Python</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">SQL</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">HTML5</span>
+        <span data-stack-cat="languages" class="px-3.5 py-1.5 rounded-full bg-[#eceae3] text-[#111214]">CSS3</span>
 
-          <div class="liquid-card p-6 sm:p-8 space-y-4">
-            <div class="flex items-center justify-between font-mono text-xs text-[#7c8ba1]">
-              <span>Engineering areas</span>
-            </div>
-            <ul class="space-y-3 text-sm text-[#b8c4d4]">
-              <li class="flex items-center justify-between gap-4 pb-3 border-b border-white/10">
-                <span class="text-[#f1f5f9]">Embedded &amp; IoT telemetry</span>
-                <span class="font-mono text-xs text-[#7c8ba1]">C++ / Arduino</span>
-              </li>
-              <li class="flex items-center justify-between gap-4 pb-3 border-b border-white/10">
-                <span class="text-[#f1f5f9]">Web &amp; full-stack systems</span>
-                <span class="font-mono text-xs text-[#7c8ba1]">JS / PHP / SQL</span>
-              </li>
-              <li class="flex items-center justify-between gap-4">
-                <span class="text-[#f1f5f9]">Systems &amp; CLI tooling</span>
-                <span class="font-mono text-xs text-[#7c8ba1]">C / Java / Python</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </section>
+        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">Linux CLI</span>
+        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">Git</span>
+        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">GitHub</span>
+        <span data-stack-cat="systems" class="px-3.5 py-1.5 rounded-full border border-black/15 text-[#4a4d52]">VS Code</span>
 
-      <!-- Contact -->
-      <section id="contact" class="liquid-card p-6 sm:p-8 flex flex-col sm:flex-row sm:items-center justify-between gap-6 reveal">
-        <div class="space-y-1.5">
-          <h2 class="text-xl sm:text-2xl font-medium text-[#f1f5f9]">Direct inquiries</h2>
-          <p class="text-sm text-[#b8c4d4]">Internships, engineering discussions, and project collaboration.</p>
-        </div>
-        <div class="flex flex-wrap items-center gap-3">
-          <a href="mailto:uEscobido@l-ala.studio" class="btn-tactile px-5 py-2.5 rounded-full bg-[#f1f5f9] text-[#04070f] text-sm font-medium hover:bg-white font-mono">
-            uEscobido@l-ala.studio
-          </a>
-          <button
-            type="button"
-            id="copy-email-btn"
-            data-state="idle"
-            class="btn-tactile glass-pill swap-stack px-5 py-2.5 rounded-full text-sm font-medium text-[#f1f5f9]"
-          >
-            <span class="swap-idle">Copy email</span>
-            <span class="swap-done text-[#8ab4e8]" aria-hidden="true">Copied</span>
-          </button>
-        </div>
-      </section>
+        <span data-stack-cat="hardware" class="px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">Arduino Uno</span>
+        <span data-stack-cat="hardware" class="px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">MLX90614 / HC-SR04 / MQ-Series</span>
+        <span data-stack-cat="hardware" class="px-3.5 py-1.5 rounded-full border border-[#1d3557]/30 text-[#1d3557]">FDM PLA Prototyping</span>
+      </div>
+    </section>
 
-    </main>
+    <!-- Contact -->
+    <section id="contact" class="pt-10 hairline-top flex flex-col sm:flex-row sm:items-center justify-between gap-6 reveal">
+      <div class="space-y-1.5">
+        <h2 class="text-xl sm:text-2xl font-medium text-[#111214]">Direct inquiries</h2>
+        <p class="text-sm text-[#4a4d52]">Internships, engineering discussions, and project collaboration.</p>
+      </div>
+      <div class="flex flex-wrap items-center gap-3">
+        <a href="mailto:uEscobido@l-ala.studio" class="btn-tactile px-5 py-2.5 rounded-full bg-[#1d3557] text-[#f6f5f1] text-sm font-medium hover:bg-[#152843] font-mono">
+          uEscobido@l-ala.studio
+        </a>
+        <button
+          type="button"
+          id="copy-email-btn"
+          data-state="idle"
+          class="btn-tactile swap-stack px-5 py-2.5 rounded-full border border-black/15 text-sm font-medium text-[#111214] hover:border-black/35"
+        >
+          <span class="swap-idle">Copy email</span>
+          <span class="swap-done text-[#1d3557]" aria-hidden="true">Copied</span>
+        </button>
+      </div>
+    </section>
 
-    <footer class="border-t border-white/10 py-8 text-center text-xs text-[#7c8ba1] font-mono mt-20">
-      <p>&copy; 2026 L-Ala Studio &middot; portfolio.l-ala.studio</p>
-    </footer>
-  </div>
+  </main>
+
+  <footer class="hairline-top py-8 text-center text-xs text-[#71757d] font-mono mt-24">
+    <p>&copy; 2026 L-Ala Studio &middot; portfolio.l-ala.studio</p>
+  </footer>
 
 </body>
 </html>

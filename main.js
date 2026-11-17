@@ -97,11 +97,12 @@ document.addEventListener("DOMContentLoaded", () => {
       modeButtons.forEach((b) => {
         const isCurrent = b === btn;
         b.setAttribute("aria-pressed", String(isCurrent));
-        b.classList.toggle("bg-white/15", isCurrent);
-        b.classList.toggle("text-[#f1f5f9]", isCurrent);
-        b.classList.toggle("border-white/25", isCurrent);
-        b.classList.toggle("text-[#7c8ba1]", !isCurrent);
-        b.classList.toggle("border-white/10", !isCurrent);
+        b.classList.toggle("bg-[#111214]", isCurrent);
+        b.classList.toggle("text-[#f6f5f1]", isCurrent);
+        b.classList.toggle("border-[#111214]", isCurrent);
+        b.classList.toggle("text-[#4a4d52]", !isCurrent);
+        b.classList.toggle("hover:text-[#111214]", !isCurrent);
+        b.classList.toggle("border-black/15", !isCurrent);
       });
 
       updateReadout(elIr, activeMode.ir);
@@ -112,18 +113,18 @@ document.addEventListener("DOMContentLoaded", () => {
       if (elStatus) {
         elStatus.textContent = activeMode.status;
         elStatus.className = activeMode.alert
-          ? "font-mono text-xs text-[#e09898] transition-colors duration-150"
-          : "font-mono text-xs text-[#7c8ba1] transition-colors duration-150";
+          ? "font-mono text-xs text-[#b91c1c] transition-colors duration-150"
+          : "font-mono text-xs text-[#4a4d52] transition-colors duration-150";
       }
       if (elDot) {
         elDot.className = activeMode.alert
-          ? "w-2 h-2 rounded-full bg-[#e07a7a] transition-colors duration-150"
-          : "w-2 h-2 rounded-full bg-[#8ab4e8] transition-colors duration-150";
+          ? "w-2 h-2 rounded-full bg-[#b91c1c] transition-colors duration-150"
+          : "w-2 h-2 rounded-full bg-[#1d3557] transition-colors duration-150";
       }
     });
   });
 
-  // Smoothly interpolated oscilloscope trace (pauses when offscreen or reduced-motion)
+  // Smoothly interpolated oscilloscope trace on warm paper
   const canvas = document.getElementById("telemetry-wave");
   if (canvas && canvas.getContext) {
     const ctx = canvas.getContext("2d");
@@ -142,7 +143,6 @@ document.addEventListener("DOMContentLoaded", () => {
         canvas.height = height * dpr;
       }
 
-      // Smoothly approach target amplitude and frequency
       if (prefersReduced) {
         currentAmp = activeMode.amp;
         currentFreq = activeMode.freq;
@@ -154,15 +154,15 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.clearRect(0, 0, width, height);
 
-      ctx.strokeStyle = "rgba(226, 232, 240, 0.08)";
+      ctx.strokeStyle = "rgba(17, 18, 20, 0.1)";
       ctx.lineWidth = 1;
       ctx.beginPath();
       ctx.moveTo(0, height / 2);
       ctx.lineTo(width, height / 2);
       ctx.stroke();
 
-      ctx.strokeStyle = activeMode.alert ? "#e07a7a" : "#8ab4e8";
-      ctx.lineWidth = 1.5;
+      ctx.strokeStyle = activeMode.alert ? "#b91c1c" : "#1d3557";
+      ctx.lineWidth = 1.6;
       ctx.beginPath();
       for (let x = 0; x <= width; x += 3) {
         const y =
@@ -196,7 +196,7 @@ document.addEventListener("DOMContentLoaded", () => {
     drawFrame();
   }
 
-  // 3. Progressive Disclosure Expanders (grid-rows recipe)
+  // 3. Progressive Disclosure Architecture Expander
   document.querySelectorAll("[data-expander-btn]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const targetId = btn.getAttribute("data-expander-btn");
@@ -213,21 +213,41 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 4. Stack Category Filter
+  // 4. Stack Category Filter with Fluid Sliding Indicator
+  const filterTrack = document.getElementById("stack-filter-track");
+  const filterIndicator = document.getElementById("stack-filter-indicator");
   const filterBtns = document.querySelectorAll("[data-stack-filter]");
   const stackItems = document.querySelectorAll("[data-stack-cat]");
+
+  const moveIndicator = (targetBtn) => {
+    if (!filterTrack || !filterIndicator || !targetBtn) return;
+    const trackRect = filterTrack.getBoundingClientRect();
+    const btnRect = targetBtn.getBoundingClientRect();
+    const offsetX = btnRect.left - trackRect.left;
+    filterIndicator.style.width = `${btnRect.width}px`;
+    filterIndicator.style.transform = `translateX(${offsetX}px)`;
+  };
+
+  const activeFilterBtn = document.querySelector("[data-stack-filter][aria-pressed='true']");
+  if (activeFilterBtn) {
+    moveIndicator(activeFilterBtn);
+  }
+  window.addEventListener("resize", () => {
+    const current = document.querySelector("[data-stack-filter][aria-pressed='true']");
+    if (current) moveIndicator(current);
+  });
 
   filterBtns.forEach((btn) => {
     btn.addEventListener("click", () => {
       const filter = btn.getAttribute("data-stack-filter");
+      moveIndicator(btn);
+
       filterBtns.forEach((b) => {
         const active = b === btn;
         b.setAttribute("aria-pressed", String(active));
-        b.classList.toggle("bg-white/15", active);
-        b.classList.toggle("text-[#f1f5f9]", active);
-        b.classList.toggle("border-white/25", active);
-        b.classList.toggle("text-[#7c8ba1]", !active);
-        b.classList.toggle("border-white/10", !active);
+        b.classList.toggle("text-[#f6f5f1]", active);
+        b.classList.toggle("text-[#4a4d52]", !active);
+        b.classList.toggle("hover:text-[#111214]", !active);
       });
 
       stackItems.forEach((item) => {

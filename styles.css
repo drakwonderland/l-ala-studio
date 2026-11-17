@@ -1,34 +1,33 @@
-/* Dark-Blue Liquid Glass — Restrained & Polished */
+/* Editorial Swiss Monograph — Design & Motion Tokens */
 :root {
-  --bg-deep: #04070f;
-  --glass-bg: rgba(11, 18, 34, 0.62);
-  --glass-pill: rgba(255, 255, 255, 0.055);
-  --glass-border: rgba(226, 232, 240, 0.1);
-  --glass-border-hover: rgba(226, 232, 240, 0.22);
-  --glass-highlight: rgba(255, 255, 255, 0.18);
-
-  --text-primary: #f1f5f9;
-  --text-secondary: #b8c4d4;
-  --text-muted: #7c8ba1;
-  --accent-muted: #8ab4e8;
+  --paper: #f6f5f1;
+  --paper-elevated: #eceae3;
+  --ink: #111214;
+  --ink-secondary: #4a4d52;
+  --ink-muted: #71757d;
+  --navy: #1d3557;
+  --navy-hover: #152843;
+  --rule: rgba(17, 18, 20, 0.12);
+  --rule-strong: rgba(17, 18, 20, 0.24);
 
   /* Named Motion Curves & Durations */
+  --ease-fluid: cubic-bezier(0.22, 1, 0.36, 1);
   --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
   --dur-press: 120ms;
-  --dur-hover: 150ms;
-  --dur-move: 240ms;
-  --dur-enter: 300ms;
+  --dur-hover: 160ms;
+  --dur-move: 260ms;
+  --dur-enter: 380ms;
 }
 
 html {
-  background-color: var(--bg-deep);
-  color: var(--text-primary);
+  background-color: var(--paper);
+  color: var(--ink);
 }
 
 body {
-  background-color: var(--bg-deep);
-  color: var(--text-primary);
+  background-color: var(--paper);
+  color: var(--ink);
   margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
@@ -49,72 +48,37 @@ p {
 
 /* Neutral keyboard focus ring */
 :focus-visible {
-  outline: 1.5px solid rgba(241, 245, 249, 0.45);
+  outline: 1.5px solid var(--navy);
   outline-offset: 2px;
 }
 
-/* Quiet, low-chroma deep midnight-blue light field */
-.glass-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  background:
-    radial-gradient(60% 50% at 20% 10%, rgba(30, 58, 138, 0.18) 0%, rgba(30, 58, 138, 0) 70%),
-    radial-gradient(50% 45% at 82% 85%, rgba(23, 37, 84, 0.2) 0%, rgba(23, 37, 84, 0) 72%),
-    linear-gradient(180deg, #03060d 0%, #070d1b 55%, #04070f 100%);
+/* Editorial sticky top bar */
+.editorial-nav {
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
 }
 
-.content-layer {
-  position: relative;
-  z-index: 10;
+/* Hairline row & section rules */
+.hairline-top {
+  border-top: 1px solid var(--rule);
 }
 
-/* Liquid Glass Navigation */
-.apple-nav {
-  background: rgba(5, 10, 22, 0.72);
-  backdrop-filter: blur(16px) saturate(130%);
-  -webkit-backdrop-filter: blur(16px) saturate(130%);
-  border-bottom: 1px solid rgba(226, 232, 240, 0.08);
+.hairline-bottom {
+  border-bottom: 1px solid var(--rule);
 }
 
-/* Liquid Glass Surface */
-.liquid-card,
-.surface-card {
-  background: linear-gradient(
-    170deg,
-    rgba(255, 255, 255, 0.045) 0%,
-    var(--glass-bg) 42%,
-    rgba(6, 11, 22, 0.74) 100%
-  );
-  backdrop-filter: blur(16px) saturate(130%);
-  -webkit-backdrop-filter: blur(16px) saturate(130%);
-  border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  box-shadow:
-    0 16px 36px -14px rgba(2, 6, 23, 0.7),
-    inset 0 1px 0 0 var(--glass-highlight),
-    inset 0 -1px 0 0 rgba(255, 255, 255, 0.03);
-  transition:
-    border-color var(--dur-hover) ease,
-    box-shadow var(--dur-hover) ease;
-}
-
-.interactive-card {
-  cursor: pointer;
+/* Subtle interactive row hover (no card boxes, no scale jump) */
+.editorial-row {
+  transition: background-color var(--dur-hover) ease;
 }
 
 @media (hover: hover) and (pointer: fine) {
-  .interactive-card:hover {
-    border-color: var(--glass-border-hover);
-    box-shadow:
-      0 20px 44px -14px rgba(2, 6, 23, 0.8),
-      inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
-      inset 0 -1px 0 0 rgba(255, 255, 255, 0.05);
+  .editorial-row:hover {
+    background-color: rgba(17, 18, 20, 0.025);
   }
 }
 
-/* Tactile Glass & Pill Buttons */
+/* Tactile Buttons & Chips */
 .btn-tactile {
   transition:
     transform var(--dur-press) var(--ease-out),
@@ -124,31 +88,50 @@ p {
 }
 
 .btn-tactile:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
-.glass-pill {
-  background: var(--glass-pill);
-  border: 1px solid rgba(226, 232, 240, 0.11);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+/* Sliding Filter Indicator */
+.filter-track {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px;
+  border-radius: 999px;
+  background: var(--paper-elevated);
+  border: 1px solid var(--rule);
 }
 
-@media (hover: hover) and (pointer: fine) {
-  .glass-pill:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: rgba(226, 232, 240, 0.2);
-  }
+.filter-indicator {
+  position: absolute;
+  top: 4px;
+  left: 0;
+  height: calc(100% - 8px);
+  border-radius: 999px;
+  background: var(--ink);
+  transition:
+    transform var(--dur-move) var(--ease-fluid),
+    width var(--dur-move) var(--ease-fluid);
+  pointer-events: none;
+  z-index: 0;
 }
 
-.text-titanium {
-  color: var(--text-primary);
+.filter-btn {
+  position: relative;
+  z-index: 1;
+  transition: color var(--dur-hover) ease, transform var(--dur-press) var(--ease-out);
+}
+
+.filter-btn:active {
+  transform: scale(0.97);
 }
 
 /* Smooth Grid-Rows Expander */
 .expander {
   display: grid;
   grid-template-rows: 0fr;
-  transition: grid-template-rows var(--dur-move) var(--ease-in-out);
+  transition: grid-template-rows var(--dur-move) var(--ease-fluid);
 }
 
 .expander[data-open="true"] {
@@ -161,10 +144,10 @@ p {
 
 .expander-content {
   opacity: 0;
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   transition:
-    opacity 180ms var(--ease-out),
-    transform 180ms var(--ease-out);
+    opacity 220ms var(--ease-fluid),
+    transform 220ms var(--ease-fluid);
 }
 
 .expander[data-open="true"] .expander-content {
@@ -172,7 +155,7 @@ p {
   transform: translateY(0);
 }
 
-/* Stacked In-Place Replacement */
+/* Stacked In-Place Replacement (Copy email -> Copied) */
 .swap-stack {
   display: grid;
   place-items: center;
@@ -181,8 +164,8 @@ p {
 .swap-stack > * {
   grid-area: 1 / 1;
   transition:
-    opacity var(--dur-hover) var(--ease-out),
-    transform var(--dur-hover) var(--ease-out);
+    opacity var(--dur-hover) var(--ease-fluid),
+    transform var(--dur-hover) var(--ease-fluid);
 }
 
 .swap-stack[data-state="idle"] .swap-done,
@@ -198,13 +181,13 @@ p {
   transform: scale(1);
 }
 
-/* Section Scroll Reveal */
+/* Smooth Section Reveal */
 .reveal {
   opacity: 0;
-  transform: translateY(10px);
+  transform: translateY(12px);
   transition:
-    opacity var(--dur-enter) var(--ease-out),
-    transform var(--dur-enter) var(--ease-out);
+    opacity var(--dur-enter) var(--ease-fluid),
+    transform var(--dur-enter) var(--ease-fluid);
   will-change: opacity, transform;
 }
 
@@ -216,12 +199,26 @@ p {
 
 /* Readout micro-transition */
 .readout-value {
-  transition: opacity 100ms var(--ease-out), transform 100ms var(--ease-out);
+  transition: opacity 120ms var(--ease-fluid), transform 120ms var(--ease-fluid);
 }
 
 .readout-value.updating {
-  opacity: 0.4;
-  transform: translateY(2px);
+  opacity: 0.35;
+  transform: translateY(3px);
+}
+
+/* Legacy support for alertshield.html */
+.apple-nav {
+  background: rgba(246, 245, 241, 0.92);
+  border-bottom: 1px solid var(--rule);
+}
+.liquid-card {
+  border: 1px solid var(--rule);
+  border-radius: 12px;
+  background: #ffffff;
+}
+.text-titanium {
+  color: var(--ink);
 }
 
 @media (prefers-reduced-motion: reduce) {
