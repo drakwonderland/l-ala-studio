@@ -1,6 +1,23 @@
 document.addEventListener("DOMContentLoaded", () => {
   const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  // 0. Smooth Initial Skeleton Resolution (zero layout shift via .load-stage)
+  const loadStages = document.querySelectorAll(".load-stage[data-loaded='false']");
+  if (loadStages.length) {
+    const resolveLoadStages = () => {
+      loadStages.forEach((stage) => stage.setAttribute("data-loaded", "true"));
+    };
+    if (prefersReduced) {
+      resolveLoadStages();
+    } else {
+      const minDelay = new Promise((res) => setTimeout(res, 420));
+      const fontsReady = document.fonts ? document.fonts.ready.catch(() => {}) : Promise.resolve();
+      Promise.all([minDelay, Promise.race([fontsReady, new Promise((res) => setTimeout(res, 800))])]).then(
+        resolveLoadStages
+      );
+    }
+  }
+
   // 1. Scroll Reveal + Staggered Children (compositor-only, unobserves after trigger)
   document.querySelectorAll(".reveal").forEach((section) => {
     section.querySelectorAll(".reveal-item").forEach((item, idx) => {
